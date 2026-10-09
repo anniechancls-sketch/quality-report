@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>质量数据分析与报告生成工具</title>
+<style>
+:root{--primary:#409eff;--primary-hover:#66b1ff;--primary-light:#ecf5ff;--success:#67c23a;--success-light:#f0f9eb;--warning:#e6a23c;--warning-light:#fdf6ec;--danger:#f56c6c;--danger-light:#fef0f0;--info:#909399;--info-light:#f4f4f5;--t1:#303133;--t2:#606266;--t3:#909399;--t4:#c0c4cc;--bd:#dcdfe6;--bd-l:#e4e7ed;--bd-xl:#ebeef5;--fill:#f5f7fa;--bg:#f0f2f5;--r:4px;--shadow:0 2px 12px 0 rgba(0,0,0,.1);--font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif}
+*{box-sizing:border-box}html,body{margin:0;height:100%}
+body{font-family:var(--font);font-size:14px;color:var(--t1);background:var(--bg)}
+button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit}
+table{border-collapse:collapse;width:100%}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.muted{color:var(--t3)}.small{font-size:12px}.hidden{display:none!important}
+.app{display:flex;height:100%;overflow:hidden}
+.sidebar{width:268px;flex:0 0 268px;background:#fff;border-right:1px solid var(--bd-l);overflow-y:auto}
+.logo{display:flex;gap:10px;align-items:center;padding:16px;border-bottom:1px solid var(--bd-xl)}
+.logo-mark{width:34px;height:34px;border-radius:var(--r);background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:600}
+.logo b{display:block;font-size:14px}.logo span{font-size:12px;color:var(--t3)}
+.nav-item{display:flex;gap:10px;align-items:center;height:46px;padding:0 18px;cursor:pointer;color:var(--t2);border-left:3px solid transparent}
+.nav-item:hover{background:var(--info-light)}
+.nav-item.active{background:var(--primary-light);color:var(--primary);border-left-color:var(--primary);font-weight:500}
+.nav-item.locked{color:var(--t4);cursor:not-allowed}
+.nav-item .idx{width:20px;height:20px;border-radius:50%;border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:11px}
+.config{border-top:1px solid var(--bd-xl);padding:14px 16px 28px}
+.cfg-title{font-size:13px;font-weight:600;margin-bottom:12px}
+.cfg-row{margin-bottom:12px}.cfg-label{display:block;font-size:12px;color:var(--t2);margin-bottom:5px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.main{flex:1;display:flex;flex-direction:column;min-width:0}
+.topbar{height:60px;flex:0 0 60px;background:#fff;border-bottom:1px solid var(--bd-l);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+.topbar h1{font-size:17px;margin:0}
+.content{flex:1;overflow-y:auto;padding:20px 24px 48px}
+.page{display:none}.page.show{display:block}
+.card{background:#fff;border:1px solid var(--bd-xl);border-radius:var(--r);margin-bottom:16px}
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;border-bottom:1px solid var(--bd-xl)}
+.card-head h3{margin:0;font-size:14px}
+.card-body{padding:18px 20px}.card-body.tight{padding:0}
+.btn{display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 18px;border-radius:var(--r);border:1px solid var(--bd);background:#fff;cursor:pointer;transition:.2s}
+.btn:hover{color:var(--primary);border-color:var(--primary-hover);background:var(--primary-light)}
+.btn--primary{background:var(--primary);border-color:var(--primary);color:#fff}
+.btn--primary:hover{background:var(--primary-hover);color:#fff}
+.btn--sm{height:28px;padding:0 12px;font-size:12px}
+.btn--link{border:0;background:none;color:var(--primary);padding:0 4px;height:auto;text-decoration:none}
+.btn[disabled]{background:var(--fill);border-color:var(--bd-l);color:var(--t4);cursor:not-allowed}
+.pri{display:inline-flex;align-items:center;height:36px;padding:0 18px;border-radius:var(--r);background:var(--primary);color:#fff;border:0;cursor:pointer}
+.tag{display:inline-flex;align-items:center;height:24px;padding:0 9px;border-radius:var(--r);font-size:12px;border:1px solid transparent}
+.tag--primary{background:var(--primary-light);border-color:#b3d8ff;color:var(--primary)}
+.tag--success{background:var(--success-light);border-color:#c2e7b0;color:var(--success)}
+.tag--warning{background:var(--warning-light);border-color:#f5dab1;color:var(--warning)}
+.tag--danger{background:var(--danger-light);border-color:#fbc4c4;color:var(--danger)}
+.tag--info{background:var(--info-light);border-color:#d3d4d6;color:var(--info)}
+.alert{display:flex;gap:10px;padding:10px 14px;border-radius:var(--r);font-size:13px;margin-bottom:14px;border:1px solid transparent}
+.alert--info{background:var(--info-light);color:var(--t2);border-color:#e9e9eb}
+.alert--warning{background:var(--warning-light);color:#b88230;border-color:#f5dab1}
+.alert--success{background:var(--success-light);color:#529b2e;border-color:#c2e7b0}
+.alert--danger{background:var(--danger-light);color:#cf5c5c;border-color:#fbc4c4}
+.inp,select.inp{width:100%;height:32px;padding:0 10px;border:1px solid var(--bd);border-radius:var(--r);background:#fff;outline:none}
+.inp:focus{border-color:var(--primary)}
+.tbl th{background:var(--fill);color:var(--t2);font-weight:600;text-align:left;padding:9px 12px;border-bottom:1px solid var(--bd-xl);white-space:nowrap}
+.tbl td{padding:8px 12px;border-bottom:1px solid var(--bd-xl);color:var(--t2)}
+.tbl tbody tr:hover td{background:var(--fill)}
+.tbl tbody tr.clk{cursor:pointer}
+.wrap{overflow:auto;max-height:620px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-bottom:16px}
+.kpi{background:#fff;border:1px solid var(--bd-xl);border-radius:var(--r);padding:15px 18px}
+.kpi .l{font-size:12px;color:var(--t3);margin-bottom:8px}
+.kpi .v{font-size:26px;font-weight:600;font-variant-numeric:tabular-nums}
+.kpi .s{font-size:12px;color:var(--t3);margin-top:7px}
+.kpi--primary .v{color:var(--primary)}.kpi--success .v{color:var(--success)}.kpi--warning .v{color:var(--warning)}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.chart svg{width:100%;height:auto;display:block}
+.legend{display:flex;gap:16px;flex-wrap:wrap;padding:6px 20px 14px;font-size:12px;color:var(--t2)}
+.dot{width:9px;height:9px;border-radius:2px;display:inline-block;margin-right:5px}
+.upload{border:1px dashed var(--bd);border-radius:var(--r);padding:26px;text-align:center;cursor:pointer}
+.upload:hover{border-color:var(--primary);background:var(--primary-light)}
+.ai{white-space:pre-wrap;border:1px solid var(--bd-xl);border-radius:var(--r);padding:18px;min-height:220px;line-height:1.9;font-size:13.5px;outline:none}
+.drawer-mask{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:60;opacity:0;pointer-events:none;transition:.25s}
+.drawer-mask.show{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:430px;max-width:92vw;background:#fff;z-index:61;transform:translateX(100%);transition:.28s;overflow-y:auto}
+.drawer.show{transform:none}
+.drawer-head{display:flex;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--bd-xl);font-weight:600}
+.drawer-body{padding:18px 20px}
+.kv{display:grid;grid-template-columns:110px 1fr;gap:8px 12px;padding:9px 0;border-bottom:1px dashed var(--bd-xl);font-size:13px}
+.kv .k{color:var(--t3)}
+.msg{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:90;display:flex;flex-direction:column;gap:8px;align-items:center}
+.toast{background:#fff;border:1px solid var(--bd-xl);border-left:3px solid var(--info);border-radius:var(--r);box-shadow:var(--shadow);padding:10px 16px;font-size:13px}
+.toast--success{border-left-color:var(--success)}.toast--warning{border-left-color:var(--warning)}.toast--error{border-left-color:var(--danger)}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.mapgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.limitgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:1100px){.charts{grid-template-columns:1fr}.mapgrid,.limitgrid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo"><div class="logo-mark">质</div><div><b>质量数据分析</b><span>与报告生成工具</span></div></div>
+    <nav id="nav"></nav>
+    <div class="config">
+      <div class="cfg-title">口径配置</div>
+      <div class="cfg-row"><span class="cfg-label">展示口径</span>
+        <select class="inp" id="basisMode"><option value="current">当期口径（还原现场判定）</option><option value="unified">统一口径（跨周可比）</option></select></div>
+      <div class="cfg-row"><span class="cfg-label">统一基准预设</span>
+        <select class="inp" id="preset"></select></div>
+      <div class="cfg-row"><span class="cfg-label">统一基准限值</span>
+        <div class="grid2">
+          <input class="inp" id="limOuterMin" type="number" step="0.01">
+          <input class="inp" id="limOuterMax" type="number" step="0.01">
+          <input class="inp" id="limWallMin" type="number" step="0.01">
+          <input class="inp" id="limWallMax" type="number" step="0.01">
+        </div></div>
+      <div class="cfg-row"><span class="cfg-label">重点周对（可选，逗号分隔）</span>
+        <input class="inp" id="pairLabels" placeholder="例如 3周-5周,2周-4周"></div>
+      <div class="cfg-row"><span class="cfg-label">模型接入</span>
+        <select class="inp" id="aiMode"><option value="online">在线调用 DeepSeek</option><option value="template">仅使用模板生成</option><option value="offline">模拟断网降级</option></select></div>
+      <div class="cfg-row"><span class="cfg-label">API Key（留空则读取环境变量）</span>
+        <input class="inp" id="apiKey" type="password" placeholder="sk-••••••••"></div>
+      <div class="row"><button class="btn btn--primary btn--sm" id="applyCfg" disabled>应用</button><button class="btn btn--sm" id="resetCfg">恢复默认</button></div>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div><h1 id="pageTitle">数据导入</h1></div>
+      <div class="row">
+        <span class="tag tag--info" id="basisTag">当期口径</span>
+        <span class="tag tag--info" id="dataTag">未加载数据</span>
+        <span class="tag tag--warning hidden" id="pendingTag">口径有未应用修改</span>
+      </div>
+    </header>
+    <div class="content">
+      <section class="page show" id="page-import">
+        <div class="alert alert--info">判定与全部指标由程序计算，AI 只负责文字归纳。导入后可先在「分析总览」查看结果。</div>
+        <div class="card">
+          <div class="card-head"><h3>1. 选择数据源</h3><span class="small muted">支持 .xlsx / .csv，可多选；也可直接用内置样例数据体验</span></div>
+          <div class="card-body">
+            <div class="row">
+              <button class="pri" id="useSample">使用内置样例数据（7 周 / 452 条）</button>
+              <button class="btn" id="pickFiles">选择本地文件</button>
+              <input type="file" id="fileInput" class="hidden" multiple accept=".xlsx,.csv">
+            </div>
+            <div class="small muted" id="importHint" style="margin-top:10px">尚未加载数据。</div>
+          </div>
+        </div>
+        <div class="card hidden" id="fileCard">
+          <div class="card-head"><h3>2. 文件与列映射</h3><span class="small muted">确认周次与限值；列映射已按表头自动识别，可手工修正</span></div>
+          <div class="card-body tight"><div class="wrap"><table class="tbl" id="fileTable"></table></div></div>
+        </div>
+        <div class="card hidden" id="mapCard">
+          <div class="card-head"><h3 id="mapTitle">3. 列映射与当期限值</h3><span class="small muted" id="mapSub"></span></div>
+          <div class="card-body" id="mapBody"></div>
+        </div>
+        <div class="card hidden" id="runCard">
+          <div class="card-head"><h3>4. 开始分析</h3><span class="small muted" id="runSub"></span></div>
+          <div class="card-body">
+            <button class="pri" id="runAnalyze">开始分析</button>
+            <span class="small muted" style="margin-left:12px">分析结果将用于总览、对比、解读与报告导出。</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-overview">
+        <div id="overviewAlerts"></div>
+        <div class="kpis" id="kpiGrid"></div>
+        <div class="card">
+          <div class="card-head"><h3>合格率趋势</h3><span class="small muted" id="rateSub">含 95% 置信区间</span></div>
+          <div class="chart" id="rateChart"></div>
+          <div class="legend" id="rateLegend"></div>
+        </div>
+        <div class="charts">
+          <div class="card"><div class="card-head"><h3>异常类型帕累托</h3><span class="small muted">柱为记录数，折线为累计占比</span></div><div class="chart" id="paretoChart"></div></div>
+          <div class="card"><div class="card-head"><h3>各周指标</h3><span class="small muted">当期 / 统一口径并列</span></div><div class="wrap"><table class="tbl" id="kpiTable"></table></div></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>异常构成</h3><span class="small muted">记录级与指标级两个口径</span></div>
+          <div class="wrap"><table class="tbl" id="anomTable"></table></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-compare">
+        <div class="card">
+          <div class="card-head"><h3>周间差异对比</h3><span class="small muted">数值变化用统一口径；标准变化为当期 − 统一；抽样波动判断置信区间是否重叠</span></div>
+          <div class="wrap"><table class="tbl" id="diffTable"></table></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>异常明细</h3><span class="small muted" id="detailSub">点击任意一行查看记录详情</span></div>
+          <div class="wrap"><table class="tbl" id="detailTable"></table></div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>备注与处置分布</h3><span class="small muted" id="remarkSub"></span></div>
+          <div class="wrap"><table class="tbl" id="remarkTable"></table></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-ai">
+        <div class="card">
+          <div class="card-head"><h3>AI 解读</h3><div class="row">
+            <button class="btn btn--primary btn--sm" id="genBtn">生成解读</button>
+            <button class="btn btn--sm" id="regenBtn" disabled>重新生成</button>
+          </div></div>
+          <div class="card-body">
+            <div class="alert alert--info" id="aiMeta">尚未生成。生成后会执行数字回查：正文中的每个数字都必须能在指标表中找到。</div>
+            <div class="ai" id="aiDoc" contenteditable="false">点击「生成解读」后，将基于当前口径的指标结果生成四段说明。</div>
+            <div class="small muted" style="margin-top:8px">人工编辑后的内容在导出时原样使用，系统不再对其中的数字做回查。</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-export">
+        <div class="card">
+          <div class="card-head"><h3>报告导出</h3><span class="small muted">Word / Excel / PDF 三种格式</span></div>
+          <div class="card-body">
+            <div class="grid2" style="column-gap:24px">
+              <div>
+                <p class="small muted">报告章节</p>
+                <div id="sectionList"></div>
+              </div>
+              <div>
+                <p class="small muted">输出格式</p>
+                <div id="formatList"></div>
+                <p style="margin-top:16px"><button class="pri" id="exportBtn">导出报告</button></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-head"><h3>产物列表</h3><span class="small muted">点击文件名即可下载</span></div>
+          <div class="wrap"><table class="tbl" id="outputTable"></table></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+<div class="drawer-mask" id="drawerMask"></div>
+<aside class="drawer" id="drawer"><div class="drawer-head"><span id="drawerTitle">记录详情</span><button class="btn btn--link" id="drawerClose">✕</button></div><div class="drawer-body" id="drawerBody"></div></aside>
+<div class="msg" id="msg"></div>
+<script type="module" src="./app.js"></script>
+</body>
+</html>

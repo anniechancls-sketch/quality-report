@@ -1,0 +1,16 @@
+# Render 蓝图：在 Render 控制台选择 New → Blueprint，指向本仓库即可一键创建。
+# 两个密钥都不写进文件，创建后在控制台 Environment 里填写。
+services:
+  - type: web
+    name: quality-report
+    runtime: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /healthz
+    envVars:
+      # 访问口令：务必设置，否则任何拿到网址的人都能上传文件和下载报告
+      - key: ACCESS_PASSWORD
+        sync: false
+      # 模型密钥：留空则自动降级为模板生成，功能不受影响
+      - key: DEEPSEEK_API_KEY
+        sync: false

@@ -1,0 +1,3706 @@
+{
+  "source": "附件《质量数据分析与报告生成项目.docx》附表机械抽取，共 452 条记录",
+  "generatedAt": "2026-10-09T06:13:24.018Z",
+  "weeks": [
+    {
+      "label": "1周",
+      "date": "2026/3/12",
+      "limits": {
+        "outerMin": 31.54,
+        "outerMax": 31.94,
+        "wallMin": 1.78,
+        "wallMax": 2.11
+      },
+      "rows": [
+        {
+          "boxNo": 1,
+          "outerDiameter": 31.756,
+          "minWall": 1.893,
+          "maxWall": 2.071,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 2,
+          "outerDiameter": 31.752,
+          "minWall": 1.867,
+          "maxWall": 2.074,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 3,
+          "outerDiameter": 31.482,
+          "minWall": 1.969,
+          "maxWall": 2.097,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 4,
+          "outerDiameter": 31.712,
+          "minWall": 1.866,
+          "maxWall": 1.986,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 5,
+          "outerDiameter": 31.668,
+          "minWall": 1.967,
+          "maxWall": 2.073,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 6,
+          "outerDiameter": 31.368,
+          "minWall": 1.899,
+          "maxWall": 2.031,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 7,
+          "outerDiameter": 31.774,
+          "minWall": 1.943,
+          "maxWall": 2.051,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 8,
+          "outerDiameter": 31.646,
+          "minWall": 1.949,
+          "maxWall": 2.049,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 9,
+          "outerDiameter": 31.722,
+          "minWall": 1.918,
+          "maxWall": 2.058,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 10,
+          "outerDiameter": 31.624,
+          "minWall": 1.878,
+          "maxWall": 2.061,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 11,
+          "outerDiameter": 31.728,
+          "minWall": 1.845,
+          "maxWall": 2.037,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 12,
+          "outerDiameter": 31.642,
+          "minWall": 1.873,
+          "maxWall": 2.172,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 13,
+          "outerDiameter": 31.804,
+          "minWall": 1.966,
+          "maxWall": 2.018,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 14,
+          "outerDiameter": 31.578,
+          "minWall": 1.864,
+          "maxWall": 2.054,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 15,
+          "outerDiameter": 31.796,
+          "minWall": 1.915,
+          "maxWall": 2.159,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 16,
+          "outerDiameter": 31.744,
+          "minWall": 1.841,
+          "maxWall": 2.166,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 17,
+          "outerDiameter": 31.886,
+          "minWall": 1.965,
+          "maxWall": 2.047,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 18,
+          "outerDiameter": 31.784,
+          "minWall": 1.898,
+          "maxWall": 2.083,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 19,
+          "outerDiameter": 31.748,
+          "minWall": 1.905,
+          "maxWall": 2.055,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 20,
+          "outerDiameter": 31.628,
+          "minWall": 1.876,
+          "maxWall": 2.023,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 21,
+          "outerDiameter": 31.506,
+          "minWall": 1.883,
+          "maxWall": 2.082,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 22,
+          "outerDiameter": 31.614,
+          "minWall": 1.922,
+          "maxWall": 2.077,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 23,
+          "outerDiameter": 31.608,
+          "minWall": 1.831,
+          "maxWall": 2.085,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 24,
+          "outerDiameter": 31.834,
+          "minWall": 1.891,
+          "maxWall": 1.954,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 25,
+          "outerDiameter": 31.83,
+          "minWall": 1.882,
+          "maxWall": 2.103,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 26,
+          "outerDiameter": 31.708,
+          "minWall": 1.894,
+          "maxWall": 2.145,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 27,
+          "outerDiameter": 31.832,
+          "minWall": 1.853,
+          "maxWall": 1.968,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 28,
+          "outerDiameter": 31.746,
+          "minWall": 1.928,
+          "maxWall": 2.012,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 29,
+          "outerDiameter": 31.684,
+          "minWall": 1.869,
+          "maxWall": 2.034,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 30,
+          "outerDiameter": 31.682,
+          "minWall": 1.847,
+          "maxWall": 2.098,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 31,
+          "outerDiameter": 31.754,
+          "minWall": 1.921,
+          "maxWall": 2.162,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 32,
+          "outerDiameter": 31.836,
+          "minWall": 1.884,
+          "maxWall": 2.042,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 33,
+          "outerDiameter": 31.688,
+          "minWall": 1.852,
+          "maxWall": 2.089,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 34,
+          "outerDiameter": 31.692,
+          "minWall": 1.826,
+          "maxWall": 2.101,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 35,
+          "outerDiameter": 31.612,
+          "minWall": 1.868,
+          "maxWall": 2.022,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 36,
+          "outerDiameter": 31.408,
+          "minWall": 1.897,
+          "maxWall": 2.008,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 37,
+          "outerDiameter": 31.596,
+          "minWall": 1.916,
+          "maxWall": 1.977,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 38,
+          "outerDiameter": 31.63,
+          "minWall": 1.892,
+          "maxWall": 1.999,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 39,
+          "outerDiameter": 31.732,
+          "minWall": 1.976,
+          "maxWall": 2.095,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 40,
+          "outerDiameter": 31.736,
+          "minWall": 1.961,
+          "maxWall": 2.048,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 41,
+          "outerDiameter": 31.702,
+          "minWall": 1.843,
+          "maxWall": 2.005,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 42,
+          "outerDiameter": 31.714,
+          "minWall": 1.919,
+          "maxWall": 2.156,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 43,
+          "outerDiameter": 31.726,
+          "minWall": 1.908,
+          "maxWall": 2.086,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 44,
+          "outerDiameter": 31.706,
+          "minWall": 1.932,
+          "maxWall": 2.057,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 45,
+          "outerDiameter": 31.662,
+          "minWall": 1.877,
+          "maxWall": 2.003,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 46,
+          "outerDiameter": 31.846,
+          "minWall": 1.929,
+          "maxWall": 2.004,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 47,
+          "outerDiameter": 31.874,
+          "minWall": 1.856,
+          "maxWall": 2.072,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 48,
+          "outerDiameter": 31.676,
+          "minWall": 1.886,
+          "maxWall": 2.135,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 49,
+          "outerDiameter": 31.908,
+          "minWall": 1.924,
+          "maxWall": 1.998,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 50,
+          "outerDiameter": 31.49,
+          "minWall": 1.903,
+          "maxWall": 2.039,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 51,
+          "outerDiameter": 31.772,
+          "minWall": 1.887,
+          "maxWall": 2.063,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 52,
+          "outerDiameter": 31.598,
+          "minWall": 1.954,
+          "maxWall": 1.993,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 53,
+          "outerDiameter": 31.758,
+          "minWall": 1.983,
+          "maxWall": 2.019,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 54,
+          "outerDiameter": 31.854,
+          "minWall": 1.974,
+          "maxWall": 2.067,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 55,
+          "outerDiameter": 31.562,
+          "minWall": 1.896,
+          "maxWall": 2.078,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 56,
+          "outerDiameter": 31.812,
+          "minWall": 1.931,
+          "maxWall": 2.094,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 57,
+          "outerDiameter": 31.724,
+          "minWall": 1.955,
+          "maxWall": 2.038,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 58,
+          "outerDiameter": 31.764,
+          "minWall": 1.913,
+          "maxWall": 2.024,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 59,
+          "outerDiameter": 31.504,
+          "minWall": 1.851,
+          "maxWall": 2.092,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 60,
+          "outerDiameter": 31.902,
+          "minWall": 1.907,
+          "maxWall": 1.967,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 61,
+          "outerDiameter": 31.762,
+          "minWall": 1.906,
+          "maxWall": 2.099,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 62,
+          "outerDiameter": 31.552,
+          "minWall": 1.926,
+          "maxWall": 2.017,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 63,
+          "outerDiameter": 31.79,
+          "minWall": 1.958,
+          "maxWall": 2.025,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 64,
+          "outerDiameter": 31.632,
+          "minWall": 1.973,
+          "maxWall": 2.044,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 65,
+          "outerDiameter": 31.654,
+          "minWall": 1.937,
+          "maxWall": 2.059,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 66,
+          "outerDiameter": 31.766,
+          "minWall": 1.935,
+          "maxWall": 1.964,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 67,
+          "outerDiameter": 31.734,
+          "minWall": 1.953,
+          "maxWall": 2.075,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 68,
+          "outerDiameter": 31.438,
+          "minWall": 1.914,
+          "maxWall": 1.971,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 69,
+          "outerDiameter": 31.636,
+          "minWall": 1.917,
+          "maxWall": 2.036,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 70,
+          "outerDiameter": 31.798,
+          "minWall": 1.885,
+          "maxWall": 2.015,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 71,
+          "outerDiameter": 31.696,
+          "minWall": 1.842,
+          "maxWall": 2.079,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 72,
+          "outerDiameter": 32.11,
+          "minWall": 1.959,
+          "maxWall": 2.068,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 73,
+          "outerDiameter": 31.69,
+          "minWall": 1.939,
+          "maxWall": 2.087,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 74,
+          "outerDiameter": 31.988,
+          "minWall": 1.854,
+          "maxWall": 2.041,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 75,
+          "outerDiameter": 31.808,
+          "minWall": 1.901,
+          "maxWall": 2.052,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 76,
+          "outerDiameter": 31.698,
+          "minWall": 1.879,
+          "maxWall": 2.167,
+          "verdictManual": false,
+          "remark": ""
+        },
+        {
+          "boxNo": 77,
+          "outerDiameter": 31.656,
+          "minWall": 1.872,
+          "maxWall": 2.183,
+          "verdictManual": false,
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "label": "2周",
+      "date": "2026/3/19",
+      "limits": {
+        "outerMin": 31.54,
+        "outerMax": 31.94,
+        "wallMin": 1.77,
+        "wallMax": 2.1
+      },
+      "rows": [
+        {
+          "boxNo": 1,
+          "outerDiameter": 31.824,
+          "minWall": 1.832,
+          "maxWall": 2.093,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 2,
+          "outerDiameter": 31.914,
+          "minWall": 1.888,
+          "maxWall": 2.032,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 3,
+          "outerDiameter": 31.616,
+          "minWall": 1.871,
+          "maxWall": 1.947,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 4,
+          "outerDiameter": 31.648,
+          "minWall": 1.889,
+          "maxWall": 2.027,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 5,
+          "outerDiameter": 31.664,
+          "minWall": 1.904,
+          "maxWall": 2.016,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 6,
+          "outerDiameter": 31.884,
+          "minWall": 1.846,
+          "maxWall": 2.035,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 7,
+          "outerDiameter": 31.694,
+          "minWall": 1.927,
+          "maxWall": 2.091,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 8,
+          "outerDiameter": 31.71,
+          "minWall": 1.977,
+          "maxWall": 2.066,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 9,
+          "outerDiameter": 31.85,
+          "minWall": 1.991,
+          "maxWall": 2.045,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 10,
+          "outerDiameter": 31.876,
+          "minWall": 1.862,
+          "maxWall": 2.069,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 11,
+          "outerDiameter": 31.922,
+          "minWall": 1.909,
+          "maxWall": 2.006,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 12,
+          "outerDiameter": 31.738,
+          "minWall": 1.923,
+          "maxWall": 1.976,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 13,
+          "outerDiameter": 31.57,
+          "minWall": 1.911,
+          "maxWall": 1.992,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 14,
+          "outerDiameter": 31.776,
+          "minWall": 1.925,
+          "maxWall": 2.046,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 15,
+          "outerDiameter": 31.658,
+          "minWall": 1.902,
+          "maxWall": 1.994,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 16,
+          "outerDiameter": 31.678,
+          "minWall": 1.948,
+          "maxWall": 2.026,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 17,
+          "outerDiameter": 31.644,
+          "minWall": 1.855,
+          "maxWall": 2.028,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 18,
+          "outerDiameter": 31.634,
+          "minWall": 1.936,
+          "maxWall": 2.062,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 19,
+          "outerDiameter": 32.032,
+          "minWall": 1.938,
+          "maxWall": 1.989,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 20,
+          "outerDiameter": 32.052,
+          "minWall": 1.875,
+          "maxWall": 1.995,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 21,
+          "outerDiameter": 31.844,
+          "minWall": 1.957,
+          "maxWall": 1.997,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 22,
+          "outerDiameter": 32.054,
+          "minWall": 1.946,
+          "maxWall": 2.053,
+          "verdictManual": false,
+          "remark": "往前追溯3米，报废了2米"
+        },
+        {
+          "boxNo": 23,
+          "outerDiameter": 32.132,
+          "minWall": 1.912,
+          "maxWall": 1.965,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 24,
+          "outerDiameter": 31.928,
+          "minWall": 1.836,
+          "maxWall": 2.065,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 25,
+          "outerDiameter": 31.626,
+          "minWall": 1.933,
+          "maxWall": 2.076,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 26,
+          "outerDiameter": 32.038,
+          "minWall": 1.947,
+          "maxWall": 2.002,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 27,
+          "outerDiameter": 31.888,
+          "minWall": 1.865,
+          "maxWall": 2.007,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 28,
+          "outerDiameter": 31.588,
+          "minWall": 1.844,
+          "maxWall": 1.988,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 29,
+          "outerDiameter": 31.806,
+          "minWall": 1.859,
+          "maxWall": 2.081,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 30,
+          "outerDiameter": 31.778,
+          "minWall": 1.934,
+          "maxWall": 2.088,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 31,
+          "outerDiameter": 31.788,
+          "minWall": 1.857,
+          "maxWall": 1.984,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 32,
+          "outerDiameter": 31.652,
+          "minWall": 1.941,
+          "maxWall": 2.001,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 33,
+          "outerDiameter": 31.912,
+          "minWall": 1.964,
+          "maxWall": 2.064,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 34,
+          "outerDiameter": 32.096,
+          "minWall": 1.881,
+          "maxWall": 1.969,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 35,
+          "outerDiameter": 31.866,
+          "minWall": 1.984,
+          "maxWall": 2.084,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 36,
+          "outerDiameter": 31.814,
+          "minWall": 1.945,
+          "maxWall": 1.981,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 37,
+          "outerDiameter": 31.862,
+          "minWall": 1.815,
+          "maxWall": 2.013,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 38,
+          "outerDiameter": 31.872,
+          "minWall": 1.874,
+          "maxWall": 1.945,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 39,
+          "outerDiameter": 31.794,
+          "minWall": 1.895,
+          "maxWall": 1.951,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 40,
+          "outerDiameter": 31.81,
+          "minWall": 1.817,
+          "maxWall": 1.959,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 41,
+          "outerDiameter": 31.768,
+          "minWall": 1.981,
+          "maxWall": 2.033,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 42,
+          "outerDiameter": 32.068,
+          "minWall": 1.805,
+          "maxWall": 2.011,
+          "verdictManual": false,
+          "remark": "往前追溯2米，报废了1米"
+        },
+        {
+          "boxNo": 43,
+          "outerDiameter": 31.792,
+          "minWall": 1.942,
+          "maxWall": 2.043,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 44,
+          "outerDiameter": 31.782,
+          "minWall": 1.861,
+          "maxWall": 2.021,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 45,
+          "outerDiameter": 31.868,
+          "minWall": 1.971,
+          "maxWall": 2.056,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 46,
+          "outerDiameter": 31.67,
+          "minWall": 1.972,
+          "maxWall": 2.029,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 47,
+          "outerDiameter": 31.838,
+          "minWall": 1.848,
+          "maxWall": 1.956,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 48,
+          "outerDiameter": 31.704,
+          "minWall": 1.835,
+          "maxWall": 1.918,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 49,
+          "outerDiameter": 31.826,
+          "minWall": 1.803,
+          "maxWall": 1.982,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 50,
+          "outerDiameter": 31.77,
+          "minWall": 1.968,
+          "maxWall": 1.991,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 51,
+          "outerDiameter": 31.558,
+          "minWall": 1.956,
+          "maxWall": 2.009,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 52,
+          "outerDiameter": 31.786,
+          "minWall": 1.838,
+          "maxWall": 1.987,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 53,
+          "outerDiameter": 31.568,
+          "minWall": 1.837,
+          "maxWall": 1.962,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 54,
+          "outerDiameter": 31.574,
+          "minWall": 1.863,
+          "maxWall": 1.996,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 55,
+          "outerDiameter": 31.822,
+          "minWall": 1.982,
+          "maxWall": 2.014,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 56,
+          "outerDiameter": 31.564,
+          "minWall": 1.985,
+          "maxWall": 2.026,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 57,
+          "outerDiameter": 31.97,
+          "minWall": 1.978,
+          "maxWall": 2.008,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 58,
+          "outerDiameter": 31.864,
+          "minWall": 1.858,
+          "maxWall": 1.983,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 59,
+          "outerDiameter": 31.566,
+          "minWall": 1.833,
+          "maxWall": 1.972,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 60,
+          "outerDiameter": 31.75,
+          "minWall": 1.962,
+          "maxWall": 1.985,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 61,
+          "outerDiameter": 31.802,
+          "minWall": 1.834,
+          "maxWall": 1.942,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 62,
+          "outerDiameter": 31.87,
+          "minWall": 1.951,
+          "maxWall": 1.974,
+          "verdictManual": true,
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "label": "3周",
+      "date": "2026/3/26",
+      "limits": {
+        "outerMin": 31.54,
+        "outerMax": 31.94,
+        "wallMin": 1.77,
+        "wallMax": 2.1
+      },
+      "rows": [
+        {
+          "boxNo": 1,
+          "outerDiameter": 31.816,
+          "minWall": 1.823,
+          "maxWall": 1.966,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 2,
+          "outerDiameter": 32.044,
+          "minWall": 1.944,
+          "maxWall": 1.978,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 3,
+          "outerDiameter": 31.842,
+          "minWall": 1.816,
+          "maxWall": 1.973,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 4,
+          "outerDiameter": 31.852,
+          "minWall": 1.963,
+          "maxWall": 2.019,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 5,
+          "outerDiameter": 31.666,
+          "minWall": 1.849,
+          "maxWall": 1.975,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 6,
+          "outerDiameter": 31.73,
+          "minWall": 1.839,
+          "maxWall": 1.961,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 7,
+          "outerDiameter": 31.672,
+          "minWall": 1.818,
+          "maxWall": 1.949,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 8,
+          "outerDiameter": 31.576,
+          "minWall": 1.979,
+          "maxWall": 2.027,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 9,
+          "outerDiameter": 31.606,
+          "minWall": 1.952,
+          "maxWall": 1.979,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 10,
+          "outerDiameter": 31.89,
+          "minWall": 1.824,
+          "maxWall": 1.952,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 11,
+          "outerDiameter": 31.686,
+          "minWall": 1.819,
+          "maxWall": 1.963,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 12,
+          "outerDiameter": 31.818,
+          "minWall": 1.825,
+          "maxWall": 1.944,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 13,
+          "outerDiameter": 32.008,
+          "minWall": 1.808,
+          "maxWall": 2.181,
+          "verdictManual": false,
+          "remark": "追溯报废91.5米"
+        },
+        {
+          "boxNo": 14,
+          "outerDiameter": 31.618,
+          "minWall": 1.828,
+          "maxWall": 1.906,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 15,
+          "outerDiameter": 31.674,
+          "minWall": 1.827,
+          "maxWall": 1.934,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 16,
+          "outerDiameter": 31.828,
+          "minWall": 1.988,
+          "maxWall": 2.037,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 17,
+          "outerDiameter": 31.898,
+          "minWall": 1.821,
+          "maxWall": 1.936,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 18,
+          "outerDiameter": 31.432,
+          "minWall": 1.975,
+          "maxWall": 2.073,
+          "verdictManual": false,
+          "remark": "追溯报废91.5米"
+        },
+        {
+          "boxNo": 19,
+          "outerDiameter": 31.742,
+          "minWall": 1.996,
+          "maxWall": 2.094,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 20,
+          "outerDiameter": 31.638,
+          "minWall": 1.992,
+          "maxWall": 2.087,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 21,
+          "outerDiameter": 31.39,
+          "minWall": 1.987,
+          "maxWall": 2.086,
+          "verdictManual": false,
+          "remark": "追溯报废91.5米"
+        },
+        {
+          "boxNo": 22,
+          "outerDiameter": 31.622,
+          "minWall": 1.813,
+          "maxWall": 1.926,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 23,
+          "outerDiameter": 31.848,
+          "minWall": 1.829,
+          "maxWall": 1.946,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 24,
+          "outerDiameter": 31.496,
+          "minWall": 2.004,
+          "maxWall": 2.053,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 25,
+          "outerDiameter": 31.882,
+          "minWall": 2.002,
+          "maxWall": 2.057,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 26,
+          "outerDiameter": 31.924,
+          "minWall": 1.812,
+          "maxWall": 1.941,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 27,
+          "outerDiameter": 31.896,
+          "minWall": 2.013,
+          "maxWall": 2.071,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 28,
+          "outerDiameter": 31.718,
+          "minWall": 1.807,
+          "maxWall": 1.958,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 29,
+          "outerDiameter": 31.984,
+          "minWall": 1.822,
+          "maxWall": 1.957,
+          "verdictManual": false,
+          "remark": "追溯报废91.5米"
+        },
+        {
+          "boxNo": 30,
+          "outerDiameter": 32.03,
+          "minWall": 2.003,
+          "maxWall": 2.076,
+          "verdictManual": false,
+          "remark": "追溯报废91.5米"
+        },
+        {
+          "boxNo": 31,
+          "outerDiameter": 31.584,
+          "minWall": 1.806,
+          "maxWall": 1.955,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 32,
+          "outerDiameter": 31.982,
+          "minWall": 1.989,
+          "maxWall": 2.037,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 33,
+          "outerDiameter": 31.61,
+          "minWall": 2.005,
+          "maxWall": 2.035,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 34,
+          "outerDiameter": 31.716,
+          "minWall": 1.998,
+          "maxWall": 2.042,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 35,
+          "outerDiameter": 31.352,
+          "minWall": 1.802,
+          "maxWall": 1.928,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 36,
+          "outerDiameter": 31.892,
+          "minWall": 1.993,
+          "maxWall": 2.067,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 37,
+          "outerDiameter": 32.09,
+          "minWall": 1.994,
+          "maxWall": 2.016,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 38,
+          "outerDiameter": 31.594,
+          "minWall": 1.997,
+          "maxWall": 2.088,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 39,
+          "outerDiameter": 31.99,
+          "minWall": 1.804,
+          "maxWall": 1.925,
+          "verdictManual": false,
+          "remark": "追溯报废91.5米"
+        },
+        {
+          "boxNo": 40,
+          "outerDiameter": 31.856,
+          "minWall": 1.995,
+          "maxWall": 2.078,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 41,
+          "outerDiameter": 31.894,
+          "minWall": 1.809,
+          "maxWall": 1.937,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 42,
+          "outerDiameter": 31.65,
+          "minWall": 2.016,
+          "maxWall": 2.071,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 43,
+          "outerDiameter": 31.582,
+          "minWall": 1.811,
+          "maxWall": 1.929,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 44,
+          "outerDiameter": 31.602,
+          "minWall": 1.986,
+          "maxWall": 2.024,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 45,
+          "outerDiameter": 31.878,
+          "minWall": 1.999,
+          "maxWall": 2.072,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 46,
+          "outerDiameter": 32.034,
+          "minWall": 2.017,
+          "maxWall": 2.085,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 47,
+          "outerDiameter": 32.026,
+          "minWall": 1.814,
+          "maxWall": 1.948,
+          "verdictManual": false,
+          "remark": "追溯报废91.5米"
+        },
+        {
+          "boxNo": 48,
+          "outerDiameter": 31.592,
+          "minWall": 2.015,
+          "maxWall": 2.072,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 49,
+          "outerDiameter": 31.904,
+          "minWall": 2.006,
+          "maxWall": 2.047,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 50,
+          "outerDiameter": 31.91,
+          "minWall": 1.801,
+          "maxWall": 1.953,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 51,
+          "outerDiameter": 31.556,
+          "minWall": 2.018,
+          "maxWall": 2.093,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 52,
+          "outerDiameter": 31.906,
+          "minWall": 2.008,
+          "maxWall": 2.043,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 53,
+          "outerDiameter": 31.554,
+          "minWall": 2.001,
+          "maxWall": 2.035,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 54,
+          "outerDiameter": 31.488,
+          "minWall": 2.007,
+          "maxWall": 2.031,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 55,
+          "outerDiameter": 31.59,
+          "minWall": 2.011,
+          "maxWall": 2.083,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 56,
+          "outerDiameter": 31.916,
+          "minWall": 2.019,
+          "maxWall": 2.082,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 57,
+          "outerDiameter": 31.604,
+          "minWall": 2.012,
+          "maxWall": 2.056,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 58,
+          "outerDiameter": 31.858,
+          "minWall": 2.014,
+          "maxWall": 2.063,
+          "verdictManual": true,
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "label": "4周",
+      "date": "2026/4/2",
+      "limits": {
+        "outerMin": 31.54,
+        "outerMax": 31.94,
+        "wallMin": 1.77,
+        "wallMax": 2.1
+      },
+      "rows": [
+        {
+          "boxNo": 1,
+          "outerDiameter": 31.926,
+          "minWall": 2.009,
+          "maxWall": 2.063,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 2,
+          "outerDiameter": 31.918,
+          "minWall": 1.969,
+          "maxWall": 2.072,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 3,
+          "outerDiameter": 31.572,
+          "minWall": 1.976,
+          "maxWall": 2.033,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 4,
+          "outerDiameter": 31.586,
+          "minWall": 1.977,
+          "maxWall": 2.078,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 5,
+          "outerDiameter": 31.79,
+          "minWall": 1.833,
+          "maxWall": 1.921,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 6,
+          "outerDiameter": 31.826,
+          "minWall": 1.879,
+          "maxWall": 1.932,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 7,
+          "outerDiameter": 31.882,
+          "minWall": 1.928,
+          "maxWall": 2.037,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 8,
+          "outerDiameter": 31.702,
+          "minWall": 1.977,
+          "maxWall": 2.071,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 9,
+          "outerDiameter": 31.894,
+          "minWall": 1.854,
+          "maxWall": 1.938,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 10,
+          "outerDiameter": 31.806,
+          "minWall": 1.882,
+          "maxWall": 1.943,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 11,
+          "outerDiameter": 31.692,
+          "minWall": 1.807,
+          "maxWall": 1.914,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 12,
+          "outerDiameter": 31.806,
+          "minWall": 1.933,
+          "maxWall": 2.059,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 13,
+          "outerDiameter": 31.916,
+          "minWall": 1.855,
+          "maxWall": 1.933,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 14,
+          "outerDiameter": 32.046,
+          "minWall": 1.892,
+          "maxWall": 1.931,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 15,
+          "outerDiameter": 31.992,
+          "minWall": 1.815,
+          "maxWall": 1.927,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 16,
+          "outerDiameter": 31.63,
+          "minWall": 1.963,
+          "maxWall": 2.076,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 17,
+          "outerDiameter": 31.732,
+          "minWall": 1.918,
+          "maxWall": 1.939,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 18,
+          "outerDiameter": 31.714,
+          "minWall": 1.937,
+          "maxWall": 2.085,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 19,
+          "outerDiameter": 32.076,
+          "minWall": 1.845,
+          "maxWall": 1.904,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 20,
+          "outerDiameter": 31.648,
+          "minWall": 1.846,
+          "maxWall": 1.935,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 21,
+          "outerDiameter": 31.598,
+          "minWall": 1.998,
+          "maxWall": 2.054,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 22,
+          "outerDiameter": 31.614,
+          "minWall": 1.807,
+          "maxWall": 1.924,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 23,
+          "outerDiameter": 32.078,
+          "minWall": 1.997,
+          "maxWall": 2.026,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 24,
+          "outerDiameter": 31.75,
+          "minWall": 1.818,
+          "maxWall": 1.912,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 25,
+          "outerDiameter": 31.876,
+          "minWall": 1.863,
+          "maxWall": 1.893,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 26,
+          "outerDiameter": 31.872,
+          "minWall": 1.939,
+          "maxWall": 2.046,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 27,
+          "outerDiameter": 31.704,
+          "minWall": 1.907,
+          "maxWall": 2.063,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 28,
+          "outerDiameter": 31.858,
+          "minWall": 2.009,
+          "maxWall": 2.072,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 29,
+          "outerDiameter": 31.604,
+          "minWall": 2.009,
+          "maxWall": 2.091,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 30,
+          "outerDiameter": 31.756,
+          "minWall": 1.851,
+          "maxWall": 1.922,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 31,
+          "outerDiameter": 31.828,
+          "minWall": 1.872,
+          "maxWall": 1.915,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 32,
+          "outerDiameter": 31.978,
+          "minWall": 1.981,
+          "maxWall": 2.068,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 33,
+          "outerDiameter": 32.104,
+          "minWall": 1.925,
+          "maxWall": 2.079,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 34,
+          "outerDiameter": 31.686,
+          "minWall": 1.987,
+          "maxWall": 2.055,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 35,
+          "outerDiameter": 31.786,
+          "minWall": 1.823,
+          "maxWall": 1.923,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 36,
+          "outerDiameter": 31.746,
+          "minWall": 2.016,
+          "maxWall": 2.049,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 37,
+          "outerDiameter": 31.776,
+          "minWall": 1.906,
+          "maxWall": 2.082,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 38,
+          "outerDiameter": 31.702,
+          "minWall": 1.885,
+          "maxWall": 1.916,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 39,
+          "outerDiameter": 31.558,
+          "minWall": 2.001,
+          "maxWall": 2.079,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 40,
+          "outerDiameter": 31.692,
+          "minWall": 1.817,
+          "maxWall": 1.917,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 41,
+          "outerDiameter": 31.802,
+          "minWall": 1.994,
+          "maxWall": 2.023,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 42,
+          "outerDiameter": 31.766,
+          "minWall": 1.918,
+          "maxWall": 1.968,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 43,
+          "outerDiameter": 31.736,
+          "minWall": 1.801,
+          "maxWall": 1.913,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 44,
+          "outerDiameter": 31.688,
+          "minWall": 1.897,
+          "maxWall": 1.919,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 45,
+          "outerDiameter": 31.654,
+          "minWall": 1.953,
+          "maxWall": 2.028,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 46,
+          "outerDiameter": 31.602,
+          "minWall": 1.987,
+          "maxWall": 2.016,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 47,
+          "outerDiameter": 31.886,
+          "minWall": 1.863,
+          "maxWall": 1.895,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 48,
+          "outerDiameter": 32.004,
+          "minWall": 1.928,
+          "maxWall": 1.986,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 49,
+          "outerDiameter": 31.61,
+          "minWall": 2.015,
+          "maxWall": 2.076,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 50,
+          "outerDiameter": 31.786,
+          "minWall": 1.847,
+          "maxWall": 1.908,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 51,
+          "outerDiameter": 31.814,
+          "minWall": 1.881,
+          "maxWall": 1.905,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 52,
+          "outerDiameter": 31.842,
+          "minWall": 1.867,
+          "maxWall": 1.899,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 53,
+          "outerDiameter": 31.814,
+          "minWall": 1.831,
+          "maxWall": 1.907,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 54,
+          "outerDiameter": 31.806,
+          "minWall": 1.944,
+          "maxWall": 2.039,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 55,
+          "outerDiameter": 31.678,
+          "minWall": 1.959,
+          "maxWall": 2.008,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 56,
+          "outerDiameter": 31.574,
+          "minWall": 1.913,
+          "maxWall": 2.053,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 57,
+          "outerDiameter": 31.794,
+          "minWall": 1.849,
+          "maxWall": 1.909,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 58,
+          "outerDiameter": 31.708,
+          "minWall": 1.806,
+          "maxWall": 1.889,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 59,
+          "outerDiameter": 32.074,
+          "minWall": 1.973,
+          "maxWall": 2.031,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 60,
+          "outerDiameter": 31.854,
+          "minWall": 1.976,
+          "maxWall": 2.082,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 61,
+          "outerDiameter": 31.436,
+          "minWall": 1.997,
+          "maxWall": 2.026,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 62,
+          "outerDiameter": 31.784,
+          "minWall": 1.987,
+          "maxWall": 2.047,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 63,
+          "outerDiameter": 32.056,
+          "minWall": 1.993,
+          "maxWall": 2.015,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯,往前追溯30公分左右合格"
+        },
+        {
+          "boxNo": 64,
+          "outerDiameter": 31.604,
+          "minWall": 1.881,
+          "maxWall": 1.911,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 65,
+          "outerDiameter": 31.818,
+          "minWall": 1.927,
+          "maxWall": 2.022,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 66,
+          "outerDiameter": 31.578,
+          "minWall": 1.834,
+          "maxWall": 1.902,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 67,
+          "outerDiameter": 32.124,
+          "minWall": 1.993,
+          "maxWall": 2.059,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯,往前追溯30公分左右合格"
+        }
+      ]
+    },
+    {
+      "label": "5周",
+      "date": "2026/4/9",
+      "limits": {
+        "outerMin": 31.46,
+        "outerMax": 32.02,
+        "wallMin": 1.78,
+        "wallMax": 2.11
+      },
+      "rows": [
+        {
+          "boxNo": 1,
+          "outerDiameter": 31.966,
+          "minWall": 1.882,
+          "maxWall": 2.102,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 2,
+          "outerDiameter": 31.936,
+          "minWall": 1.909,
+          "maxWall": 2.104,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 3,
+          "outerDiameter": 31.548,
+          "minWall": 1.919,
+          "maxWall": 2.096,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 4,
+          "outerDiameter": 31.952,
+          "minWall": 1.978,
+          "maxWall": 2.076,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 5,
+          "outerDiameter": 31.934,
+          "minWall": 1.876,
+          "maxWall": 1.903,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 6,
+          "outerDiameter": 31.526,
+          "minWall": 1.899,
+          "maxWall": 1.981,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 7,
+          "outerDiameter": 31.514,
+          "minWall": 1.886,
+          "maxWall": 1.907,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 8,
+          "outerDiameter": 31.972,
+          "minWall": 1.954,
+          "maxWall": 2.033,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 9,
+          "outerDiameter": 31.932,
+          "minWall": 1.838,
+          "maxWall": 1.898,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 10,
+          "outerDiameter": 31.536,
+          "minWall": 1.856,
+          "maxWall": 1.897,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 11,
+          "outerDiameter": 31.528,
+          "minWall": 1.912,
+          "maxWall": 2.096,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 12,
+          "outerDiameter": 31.95,
+          "minWall": 1.929,
+          "maxWall": 2.047,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 13,
+          "outerDiameter": 31.948,
+          "minWall": 1.922,
+          "maxWall": 1.979,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 14,
+          "outerDiameter": 31.958,
+          "minWall": 1.888,
+          "maxWall": 1.987,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 15,
+          "outerDiameter": 31.474,
+          "minWall": 1.863,
+          "maxWall": 1.891,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 16,
+          "outerDiameter": 31.532,
+          "minWall": 1.862,
+          "maxWall": 1.901,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 17,
+          "outerDiameter": 31.546,
+          "minWall": 1.971,
+          "maxWall": 2.047,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 18,
+          "outerDiameter": 31.522,
+          "minWall": 1.868,
+          "maxWall": 1.892,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 19,
+          "outerDiameter": 31.964,
+          "minWall": 1.842,
+          "maxWall": 1.896,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 20,
+          "outerDiameter": 31.516,
+          "minWall": 1.954,
+          "maxWall": 2.014,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 21,
+          "outerDiameter": 31.55,
+          "minWall": 2.013,
+          "maxWall": 2.089,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 22,
+          "outerDiameter": 31.534,
+          "minWall": 1.869,
+          "maxWall": 1.894,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 23,
+          "outerDiameter": 31.53,
+          "minWall": 1.914,
+          "maxWall": 1.958,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 24,
+          "outerDiameter": 32.002,
+          "minWall": 1.848,
+          "maxWall": 2.041,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 25,
+          "outerDiameter": 31.544,
+          "minWall": 1.958,
+          "maxWall": 2.048,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 26,
+          "outerDiameter": 31.93,
+          "minWall": 1.983,
+          "maxWall": 2.074,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 27,
+          "outerDiameter": 31.542,
+          "minWall": 2.017,
+          "maxWall": 2.082,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 28,
+          "outerDiameter": 31.956,
+          "minWall": 1.929,
+          "maxWall": 2.014,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 29,
+          "outerDiameter": 31.944,
+          "minWall": 1.846,
+          "maxWall": 1.949,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 30,
+          "outerDiameter": 31.976,
+          "minWall": 1.994,
+          "maxWall": 2.055,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 31,
+          "outerDiameter": 31.296,
+          "minWall": 1.831,
+          "maxWall": 1.903,
+          "verdictManual": false,
+          "remark": "往前追溯3米，报废了2米"
+        },
+        {
+          "boxNo": 32,
+          "outerDiameter": 31.508,
+          "minWall": 1.944,
+          "maxWall": 2.006,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 33,
+          "outerDiameter": 31.942,
+          "minWall": 1.903,
+          "maxWall": 2.055,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 34,
+          "outerDiameter": 31.986,
+          "minWall": 1.852,
+          "maxWall": 2.054,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 35,
+          "outerDiameter": 31.502,
+          "minWall": 1.968,
+          "maxWall": 1.991,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 36,
+          "outerDiameter": 31.974,
+          "minWall": 1.905,
+          "maxWall": 2.028,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 37,
+          "outerDiameter": 31.538,
+          "minWall": 1.998,
+          "maxWall": 2.066,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 38,
+          "outerDiameter": 31.498,
+          "minWall": 1.948,
+          "maxWall": 2.064,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 39,
+          "outerDiameter": 31.476,
+          "minWall": 1.958,
+          "maxWall": 2.048,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 40,
+          "outerDiameter": 31.518,
+          "minWall": 2.009,
+          "maxWall": 2.094,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 41,
+          "outerDiameter": 31.954,
+          "minWall": 1.964,
+          "maxWall": 2.008,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 42,
+          "outerDiameter": 31.938,
+          "minWall": 1.989,
+          "maxWall": 2.021,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 43,
+          "outerDiameter": 31.472,
+          "minWall": 1.841,
+          "maxWall": 2.055,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 44,
+          "outerDiameter": 31.996,
+          "minWall": 1.853,
+          "maxWall": 1.943,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 45,
+          "outerDiameter": 31.484,
+          "minWall": 1.947,
+          "maxWall": 2.043,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 46,
+          "outerDiameter": 32.006,
+          "minWall": 1.845,
+          "maxWall": 1.991,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 47,
+          "outerDiameter": 31.492,
+          "minWall": 2.014,
+          "maxWall": 2.038,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 48,
+          "outerDiameter": 31.512,
+          "minWall": 1.831,
+          "maxWall": 1.911,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 49,
+          "outerDiameter": 31.478,
+          "minWall": 1.882,
+          "maxWall": 1.995,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 50,
+          "outerDiameter": 31.524,
+          "minWall": 1.992,
+          "maxWall": 2.052,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 51,
+          "outerDiameter": 31.946,
+          "minWall": 1.923,
+          "maxWall": 1.957,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 52,
+          "outerDiameter": 31.51,
+          "minWall": 1.901,
+          "maxWall": 1.944,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 53,
+          "outerDiameter": 31.962,
+          "minWall": 1.987,
+          "maxWall": 2.094,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 54,
+          "outerDiameter": 31.994,
+          "minWall": 1.814,
+          "maxWall": 2.041,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 55,
+          "outerDiameter": 31.968,
+          "minWall": 1.983,
+          "maxWall": 2.032,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 56,
+          "outerDiameter": 31.998,
+          "minWall": 1.907,
+          "maxWall": 1.935,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 57,
+          "outerDiameter": 31.486,
+          "minWall": 1.975,
+          "maxWall": 2.102,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 58,
+          "outerDiameter": 31.494,
+          "minWall": 1.945,
+          "maxWall": 2.078,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 59,
+          "outerDiameter": 31.754,
+          "minWall": 1.912,
+          "maxWall": 2.045,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 60,
+          "outerDiameter": 31.828,
+          "minWall": 1.852,
+          "maxWall": 2.098,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 61,
+          "outerDiameter": 31.982,
+          "minWall": 1.814,
+          "maxWall": 1.969,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 62,
+          "outerDiameter": 31.488,
+          "minWall": 1.994,
+          "maxWall": 2.015,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 63,
+          "outerDiameter": 31.81,
+          "minWall": 1.868,
+          "maxWall": 1.972,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 64,
+          "outerDiameter": 31.744,
+          "minWall": 1.972,
+          "maxWall": 2.048,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 65,
+          "outerDiameter": 31.904,
+          "minWall": 2.017,
+          "maxWall": 2.044,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 66,
+          "outerDiameter": 31.956,
+          "minWall": 1.847,
+          "maxWall": 2.033,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 67,
+          "outerDiameter": 31.984,
+          "minWall": 1.943,
+          "maxWall": 2.046,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 68,
+          "outerDiameter": 31.948,
+          "minWall": 1.852,
+          "maxWall": 1.935,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 69,
+          "outerDiameter": 31.71,
+          "minWall": 1.912,
+          "maxWall": 2.047,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 70,
+          "outerDiameter": 31.766,
+          "minWall": 1.888,
+          "maxWall": 1.965,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 71,
+          "outerDiameter": 31.848,
+          "minWall": 1.918,
+          "maxWall": 2.085,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 72,
+          "outerDiameter": 31.674,
+          "minWall": 2.004,
+          "maxWall": 2.079,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 73,
+          "outerDiameter": 31.334,
+          "minWall": 1.905,
+          "maxWall": 2.013,
+          "verdictManual": false,
+          "remark": "往前追溯3米，报废了2米"
+        },
+        {
+          "boxNo": 74,
+          "outerDiameter": 31.992,
+          "minWall": 1.927,
+          "maxWall": 1.948,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 75,
+          "outerDiameter": 31.988,
+          "minWall": 1.979,
+          "maxWall": 2.068,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 76,
+          "outerDiameter": 31.614,
+          "minWall": 1.954,
+          "maxWall": 2.075,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 77,
+          "outerDiameter": 31.484,
+          "minWall": 2.019,
+          "maxWall": 2.102,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 78,
+          "outerDiameter": 31.75,
+          "minWall": 1.986,
+          "maxWall": 2.052,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 79,
+          "outerDiameter": 31.264,
+          "minWall": 2.001,
+          "maxWall": 2.042,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 80,
+          "outerDiameter": 31.93,
+          "minWall": 1.903,
+          "maxWall": 2.001,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 81,
+          "outerDiameter": 31.908,
+          "minWall": 1.824,
+          "maxWall": 1.934,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 82,
+          "outerDiameter": 31.626,
+          "minWall": 1.867,
+          "maxWall": 2.028,
+          "verdictManual": true,
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "label": "6周",
+      "date": "2026/4/16",
+      "limits": {
+        "outerMin": 31.46,
+        "outerMax": 32.02,
+        "wallMin": 1.78,
+        "wallMax": 2.11
+      },
+      "rows": [
+        {
+          "boxNo": 1,
+          "outerDiameter": 31.742,
+          "minWall": 1.842,
+          "maxWall": 2.019,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 2,
+          "outerDiameter": 31.586,
+          "minWall": 2.017,
+          "maxWall": 2.044,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 3,
+          "outerDiameter": 31.724,
+          "minWall": 1.969,
+          "maxWall": 2.031,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 4,
+          "outerDiameter": 31.906,
+          "minWall": 1.857,
+          "maxWall": 1.987,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 5,
+          "outerDiameter": 31.862,
+          "minWall": 2.006,
+          "maxWall": 2.049,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 6,
+          "outerDiameter": 31.642,
+          "minWall": 1.992,
+          "maxWall": 2.041,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 7,
+          "outerDiameter": 31.522,
+          "minWall": 1.913,
+          "maxWall": 1.987,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 8,
+          "outerDiameter": 31.858,
+          "minWall": 1.988,
+          "maxWall": 2.072,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 9,
+          "outerDiameter": 31.79,
+          "minWall": 2.012,
+          "maxWall": 2.051,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 10,
+          "outerDiameter": 31.912,
+          "minWall": 1.851,
+          "maxWall": 2.089,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 11,
+          "outerDiameter": 31.546,
+          "minWall": 1.841,
+          "maxWall": 2.061,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 12,
+          "outerDiameter": 31.982,
+          "minWall": 1.874,
+          "maxWall": 2.001,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 13,
+          "outerDiameter": 31.884,
+          "minWall": 1.938,
+          "maxWall": 1.988,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 14,
+          "outerDiameter": 31.87,
+          "minWall": 1.875,
+          "maxWall": 2.026,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 15,
+          "outerDiameter": 31.922,
+          "minWall": 1.893,
+          "maxWall": 1.973,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 16,
+          "outerDiameter": 31.798,
+          "minWall": 1.838,
+          "maxWall": 1.941,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 17,
+          "outerDiameter": 32.162,
+          "minWall": 1.923,
+          "maxWall": 2.024,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 18,
+          "outerDiameter": 31.982,
+          "minWall": 1.916,
+          "maxWall": 2.091,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 19,
+          "outerDiameter": 31.654,
+          "minWall": 1.976,
+          "maxWall": 2.012,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 20,
+          "outerDiameter": 31.63,
+          "minWall": 2.015,
+          "maxWall": 2.039,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 21,
+          "outerDiameter": 31.532,
+          "minWall": 1.886,
+          "maxWall": 1.907,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 22,
+          "outerDiameter": 31.956,
+          "minWall": 1.946,
+          "maxWall": 2.066,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 23,
+          "outerDiameter": 31.794,
+          "minWall": 1.986,
+          "maxWall": 2.066,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 24,
+          "outerDiameter": 31.816,
+          "minWall": 1.894,
+          "maxWall": 1.985,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 25,
+          "outerDiameter": 31.472,
+          "minWall": 1.937,
+          "maxWall": 2.022,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 26,
+          "outerDiameter": 31.77,
+          "minWall": 1.885,
+          "maxWall": 2.044,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 27,
+          "outerDiameter": 31.892,
+          "minWall": 1.878,
+          "maxWall": 2.063,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 28,
+          "outerDiameter": 31.712,
+          "minWall": 1.925,
+          "maxWall": 2.041,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 29,
+          "outerDiameter": 31.764,
+          "minWall": 1.812,
+          "maxWall": 1.896,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 30,
+          "outerDiameter": 31.968,
+          "minWall": 1.905,
+          "maxWall": 1.973,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 31,
+          "outerDiameter": 31.838,
+          "minWall": 1.831,
+          "maxWall": 2.075,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 32,
+          "outerDiameter": 31.496,
+          "minWall": 1.892,
+          "maxWall": 2.056,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 33,
+          "outerDiameter": 31.748,
+          "minWall": 1.953,
+          "maxWall": 1.999,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 34,
+          "outerDiameter": 31.536,
+          "minWall": 1.947,
+          "maxWall": 2.054,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 35,
+          "outerDiameter": 31.586,
+          "minWall": 2.012,
+          "maxWall": 2.065,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 36,
+          "outerDiameter": 31.958,
+          "minWall": 1.912,
+          "maxWall": 2.093,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 37,
+          "outerDiameter": 31.65,
+          "minWall": 1.822,
+          "maxWall": 2.003,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 38,
+          "outerDiameter": 31.49,
+          "minWall": 2.013,
+          "maxWall": 2.081,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 39,
+          "outerDiameter": 31.714,
+          "minWall": 1.883,
+          "maxWall": 1.972,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 40,
+          "outerDiameter": 31.676,
+          "minWall": 1.963,
+          "maxWall": 2.073,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 41,
+          "outerDiameter": 31.412,
+          "minWall": 1.988,
+          "maxWall": 2.067,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 42,
+          "outerDiameter": 31.508,
+          "minWall": 1.831,
+          "maxWall": 2.056,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 43,
+          "outerDiameter": 31.67,
+          "minWall": 2.001,
+          "maxWall": 2.047,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 44,
+          "outerDiameter": 31.698,
+          "minWall": 1.856,
+          "maxWall": 2.025,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 45,
+          "outerDiameter": 31.514,
+          "minWall": 1.834,
+          "maxWall": 1.968,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 46,
+          "outerDiameter": 31.358,
+          "minWall": 1.927,
+          "maxWall": 2.068,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 47,
+          "outerDiameter": 31.914,
+          "minWall": 1.921,
+          "maxWall": 1.957,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 48,
+          "outerDiameter": 31.546,
+          "minWall": 1.956,
+          "maxWall": 2.023,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 49,
+          "outerDiameter": 31.326,
+          "minWall": 1.967,
+          "maxWall": 1.988,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 50,
+          "outerDiameter": 31.912,
+          "minWall": 1.844,
+          "maxWall": 2.085,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 51,
+          "outerDiameter": 31.506,
+          "minWall": 1.894,
+          "maxWall": 2.002,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 52,
+          "outerDiameter": 31.618,
+          "minWall": 1.982,
+          "maxWall": 2.082,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 53,
+          "outerDiameter": 31.904,
+          "minWall": 1.991,
+          "maxWall": 2.059,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 54,
+          "outerDiameter": 31.598,
+          "minWall": 1.834,
+          "maxWall": 1.953,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 55,
+          "outerDiameter": 31.752,
+          "minWall": 1.895,
+          "maxWall": 2.089,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 56,
+          "outerDiameter": 31.592,
+          "minWall": 1.935,
+          "maxWall": 2.017,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 57,
+          "outerDiameter": 31.496,
+          "minWall": 1.958,
+          "maxWall": 2.089,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 58,
+          "outerDiameter": 31.778,
+          "minWall": 1.835,
+          "maxWall": 2.071,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 59,
+          "outerDiameter": 31.626,
+          "minWall": 1.897,
+          "maxWall": 1.936,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 60,
+          "outerDiameter": 31.648,
+          "minWall": 1.837,
+          "maxWall": 1.898,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 61,
+          "outerDiameter": 31.894,
+          "minWall": 1.931,
+          "maxWall": 2.056,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 62,
+          "outerDiameter": 31.792,
+          "minWall": 1.844,
+          "maxWall": 1.956,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 63,
+          "outerDiameter": 31.498,
+          "minWall": 2.016,
+          "maxWall": 2.044,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 64,
+          "outerDiameter": 31.616,
+          "minWall": 1.916,
+          "maxWall": 2.102,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 65,
+          "outerDiameter": 31.482,
+          "minWall": 1.887,
+          "maxWall": 2.045,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 66,
+          "outerDiameter": 31.928,
+          "minWall": 1.954,
+          "maxWall": 2.037,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 67,
+          "outerDiameter": 31.71,
+          "minWall": 1.938,
+          "maxWall": 2.043,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 68,
+          "outerDiameter": 31.584,
+          "minWall": 1.994,
+          "maxWall": 2.025,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 69,
+          "outerDiameter": 31.968,
+          "minWall": 1.891,
+          "maxWall": 1.972,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 70,
+          "outerDiameter": 31.87,
+          "minWall": 1.819,
+          "maxWall": 2.006,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 71,
+          "outerDiameter": 31.958,
+          "minWall": 2.004,
+          "maxWall": 2.035,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 72,
+          "outerDiameter": 31.962,
+          "minWall": 1.956,
+          "maxWall": 2.085,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 73,
+          "outerDiameter": 31.728,
+          "minWall": 1.849,
+          "maxWall": 2.063,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 74,
+          "outerDiameter": 31.71,
+          "minWall": 1.876,
+          "maxWall": 2.041,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 75,
+          "outerDiameter": 31.75,
+          "minWall": 1.886,
+          "maxWall": 2.031,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 76,
+          "outerDiameter": 31.868,
+          "minWall": 1.996,
+          "maxWall": 2.061,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 77,
+          "outerDiameter": 31.524,
+          "minWall": 1.972,
+          "maxWall": 2.046,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 78,
+          "outerDiameter": 31.398,
+          "minWall": 1.846,
+          "maxWall": 1.949,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 79,
+          "outerDiameter": 31.346,
+          "minWall": 1.952,
+          "maxWall": 1.975,
+          "verdictManual": false,
+          "remark": "已反馈班组追溯"
+        },
+        {
+          "boxNo": 80,
+          "outerDiameter": 31.912,
+          "minWall": 1.928,
+          "maxWall": 1.951,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 81,
+          "outerDiameter": 31.862,
+          "minWall": 1.825,
+          "maxWall": 2.057,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 82,
+          "outerDiameter": 31.636,
+          "minWall": 1.907,
+          "maxWall": 1.997,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 83,
+          "outerDiameter": 31.59,
+          "minWall": 1.989,
+          "maxWall": 2.069,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 84,
+          "outerDiameter": 31.65,
+          "minWall": 1.992,
+          "maxWall": 2.056,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 85,
+          "outerDiameter": 31.506,
+          "minWall": 1.979,
+          "maxWall": 2.037,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 86,
+          "outerDiameter": 31.53,
+          "minWall": 1.978,
+          "maxWall": 2.078,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 87,
+          "outerDiameter": 31.996,
+          "minWall": 1.811,
+          "maxWall": 2.002,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 88,
+          "outerDiameter": 31.354,
+          "minWall": 1.977,
+          "maxWall": 2.005,
+          "verdictManual": false,
+          "remark": "往前追溯50公分左右合格"
+        },
+        {
+          "boxNo": 89,
+          "outerDiameter": 31.966,
+          "minWall": 1.933,
+          "maxWall": 1.965,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 90,
+          "outerDiameter": 31.824,
+          "minWall": 1.943,
+          "maxWall": 2.017,
+          "verdictManual": true,
+          "remark": ""
+        }
+      ]
+    },
+    {
+      "label": "7周",
+      "date": "2026/4/23",
+      "limits": {
+        "outerMin": 31.46,
+        "outerMax": 32.02,
+        "wallMin": 1.78,
+        "wallMax": 2.11
+      },
+      "rows": [
+        {
+          "boxNo": 1,
+          "outerDiameter": 31.524,
+          "minWall": 1.821,
+          "maxWall": 2.051,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 2,
+          "outerDiameter": 31.756,
+          "minWall": 2.011,
+          "maxWall": 2.057,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 3,
+          "outerDiameter": 31.776,
+          "minWall": 1.843,
+          "maxWall": 1.907,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 4,
+          "outerDiameter": 31.982,
+          "minWall": 1.887,
+          "maxWall": 2.014,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 5,
+          "outerDiameter": 31.772,
+          "minWall": 1.953,
+          "maxWall": 2.083,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 6,
+          "outerDiameter": 31.538,
+          "minWall": 2.005,
+          "maxWall": 2.065,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 7,
+          "outerDiameter": 31.574,
+          "minWall": 2.012,
+          "maxWall": 2.084,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 8,
+          "outerDiameter": 31.754,
+          "minWall": 1.838,
+          "maxWall": 1.948,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 9,
+          "outerDiameter": 31.614,
+          "minWall": 1.844,
+          "maxWall": 2.029,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 10,
+          "outerDiameter": 31.578,
+          "minWall": 1.836,
+          "maxWall": 2.016,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 11,
+          "outerDiameter": 31.688,
+          "minWall": 1.945,
+          "maxWall": 2.148,
+          "verdictManual": false,
+          "remark": "壁厚偏大，往前追溯合格"
+        },
+        {
+          "boxNo": 12,
+          "outerDiameter": 31.814,
+          "minWall": 1.942,
+          "maxWall": 2.068,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 13,
+          "outerDiameter": 31.636,
+          "minWall": 1.958,
+          "maxWall": 2.054,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 14,
+          "outerDiameter": 31.508,
+          "minWall": 1.951,
+          "maxWall": 2.097,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 15,
+          "outerDiameter": 31.494,
+          "minWall": 1.953,
+          "maxWall": 1.978,
+          "verdictManual": true,
+          "remark": ""
+        },
+        {
+          "boxNo": 16,
+          "outerDiameter": 31.656,
+          "minWall": 1.967,
+          "maxWall": 2.004,
+          "verdictManual": true,
+          "remark": ""
+        }
+      ]
+    }
+  ]
+}

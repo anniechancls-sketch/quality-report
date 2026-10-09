@@ -1,0 +1,15 @@
+# 运行产物（报告、日志、临时文件）
+output/
+*.log
+selftest.json
+
+# 依赖与系统文件
+node_modules/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 编辑器与本地配置
+.vscode/
+.idea/
+*.swp

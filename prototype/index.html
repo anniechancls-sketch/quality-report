@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>质量数据分析与报告生成工具 · 高保真原型</title>
+<style>
+/* ===== Element UI 设计令牌 ===== */
+:root{
+  --primary:#409eff; --primary-hover:#66b1ff; --primary-light:#ecf5ff;
+  --success:#67c23a; --success-light:#f0f9eb;
+  --warning:#e6a23c; --warning-light:#fdf6ec;
+  --danger:#f56c6c;  --danger-light:#fef0f0;
+  --info:#909399;    --info-light:#f4f4f5;
+  --t1:#303133; --t2:#606266; --t3:#909399; --t4:#c0c4cc;
+  --bd:#dcdfe6; --bd-l:#e4e7ed; --bd-xl:#ebeef5;
+  --fill:#f5f7fa; --bg:#f0f2f5;
+  --radius:4px;
+  --shadow:0 2px 12px 0 rgba(0,0,0,.1);
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;height:100%;}
+body{font-family:var(--font);font-size:14px;line-height:1.5;color:var(--t1);background:var(--bg);-webkit-font-smoothing:antialiased;}
+button,input,select,textarea{font-family:inherit;font-size:inherit;color:inherit;}
+table{border-collapse:collapse;width:100%;}
+.mono{font-variant-numeric:tabular-nums;font-feature-settings:"tnum";}
+.muted{color:var(--t3);}
+.small{font-size:12px;}
+.nowrap{white-space:nowrap;}
+.hidden{display:none !important;}
+
+/* ===== 布局 ===== */
+.app{display:flex;height:100%;overflow:hidden;}
+.sidebar{width:264px;flex:0 0 264px;background:#fff;border-right:1px solid var(--bd-l);display:flex;flex-direction:column;overflow-y:auto;}
+.main{flex:1;display:flex;flex-direction:column;min-width:0;overflow:hidden;}
+.content{flex:1;overflow-y:auto;padding:20px 24px 40px;}
+
+/* ===== 侧边栏 ===== */
+.logo{display:flex;align-items:center;gap:10px;padding:16px;border-bottom:1px solid var(--bd-xl);}
+.logo-mark{width:34px;height:34px;flex:0 0 34px;border-radius:var(--radius);background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:600;}
+.logo-text{display:flex;flex-direction:column;line-height:1.25;min-width:0;}
+.logo-text b{font-size:14px;font-weight:600;color:var(--t1);}
+.logo-text span{font-size:12px;color:var(--t3);}
+.nav{padding:8px 0;}
+.nav-item{display:flex;align-items:center;gap:10px;padding:0 18px;height:48px;cursor:pointer;color:var(--t2);border-left:3px solid transparent;user-select:none;transition:background .2s,color .2s;}
+.nav-item:hover{background:var(--info-light);color:var(--t1);}
+.nav-item.active{background:var(--primary-light);color:var(--primary);border-left-color:var(--primary);font-weight:500;}
+.nav-item .idx{width:20px;height:20px;flex:0 0 20px;border-radius:50%;border:1px solid var(--bd);display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--t3);}
+.nav-item.active .idx{border-color:var(--primary);color:var(--primary);}
+.nav-item.locked{color:var(--t4);cursor:not-allowed;}
+.nav-item.locked:hover{background:transparent;color:var(--t4);}
+
+/* ===== 配置区 ===== */
+.config{border-top:1px solid var(--bd-xl);padding:14px 16px 24px;}
+.cfg-title{font-size:13px;font-weight:600;color:var(--t1);margin-bottom:12px;display:flex;align-items:center;justify-content:space-between;}
+.cfg-title .collapse{cursor:pointer;color:var(--t3);font-size:12px;background:none;border:0;}
+.cfg-row{margin-bottom:12px;}
+.cfg-label{display:block;font-size:12px;color:var(--t2);margin-bottom:5px;}
+.cfg-limits{display:grid;grid-template-columns:1fr 1fr;gap:8px;}
+
+/* ===== 顶栏 ===== */
+.topbar{height:60px;flex:0 0 60px;background:#fff;border-bottom:1px solid var(--bd-l);display:flex;align-items:center;justify-content:space-between;padding:0 24px;gap:16px;}
+.tb-left{display:flex;align-items:baseline;gap:12px;min-width:0;}
+.tb-left h1{font-size:17px;font-weight:600;margin:0;white-space:nowrap;}
+.tb-left p{margin:0;font-size:12px;color:var(--t3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.tb-right{display:flex;align-items:center;gap:8px;flex:0 0 auto;}
+
+/* ===== 卡片 ===== */
+.el-card{background:#fff;border:1px solid var(--bd-xl);border-radius:var(--radius);box-shadow:0 1px 4px rgba(0,0,0,.04);margin-bottom:16px;}
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:14px 20px;border-bottom:1px solid var(--bd-xl);}
+.card-head h3{margin:0;font-size:14px;font-weight:600;color:var(--t1);}
+.card-head .sub{font-size:12px;color:var(--t3);font-weight:400;}
+.card-body{padding:18px 20px;}
+.card-body.tight{padding:0;}
+
+/* ===== 按钮 ===== */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;height:36px;padding:0 18px;border-radius:var(--radius);border:1px solid var(--bd);background:#fff;color:var(--t1);cursor:pointer;font-size:14px;transition:.2s;white-space:nowrap;}
+.btn:hover{color:var(--primary);border-color:var(--primary-hover);background:var(--primary-light);}
+.btn--primary{background:var(--primary);border-color:var(--primary);color:#fff;}
+.btn--primary:hover{background:var(--primary-hover);border-color:var(--primary-hover);color:#fff;}
+.btn--text{border-color:transparent;background:transparent;color:var(--primary);padding:0 8px;height:auto;}
+.btn--text:hover{background:transparent;color:var(--primary-hover);text-decoration:underline;}
+.btn--sm{height:28px;padding:0 12px;font-size:12px;}
+.btn--lg{height:40px;padding:0 22px;}
+.btn[disabled],.btn:disabled{background:var(--fill);border-color:var(--bd-l);color:var(--t4);cursor:not-allowed;}
+.btn[disabled]:hover,.btn:disabled:hover{background:var(--fill);border-color:var(--bd-l);color:var(--t4);text-decoration:none;}
+
+/* ===== 标签 ===== */
+.el-tag{display:inline-flex;align-items:center;gap:4px;height:24px;padding:0 9px;border-radius:var(--radius);font-size:12px;line-height:1;border:1px solid transparent;white-space:nowrap;}
+.el-tag--primary{background:var(--primary-light);border-color:#b3d8ff;color:var(--primary);}
+.el-tag--success{background:var(--success-light);border-color:#c2e7b0;color:var(--success);}
+.el-tag--warning{background:var(--warning-light);border-color:#f5dab1;color:var(--warning);}
+.el-tag--danger{background:var(--danger-light);border-color:#fbc4c4;color:var(--danger);}
+.el-tag--info{background:var(--info-light);border-color:#d3d4d6;color:var(--info);}
+.el-tag--plain{background:#fff;border-color:var(--bd);color:var(--t2);}
+.el-tag--dark{background:var(--primary);border-color:var(--primary);color:#fff;}
+
+/* ===== 提示条 ===== */
+.el-alert{display:flex;gap:10px;align-items:flex-start;padding:10px 14px;border-radius:var(--radius);font-size:13px;margin-bottom:16px;border:1px solid transparent;}
+.el-alert--info{background:var(--info-light);color:var(--t2);border-color:#e9e9eb;}
+.el-alert--warning{background:var(--warning-light);color:#b88230;border-color:#f5dab1;}
+.el-alert--success{background:var(--success-light);color:#529b2e;border-color:#c2e7b0;}
+.el-alert--danger{background:var(--danger-light);color:#cf5c5c;border-color:#fbc4c4;}
+.el-alert b{font-weight:600;}
+
+/* ===== 表单控件 ===== */
+.el-input,.el-select{position:relative;display:inline-block;width:100%;}
+.el-input__inner,.el-select select,.el-textarea{width:100%;height:32px;padding:0 10px;border:1px solid var(--bd);border-radius:var(--radius);background:#fff;color:var(--t1);outline:none;transition:border-color .2s;}
+.el-input__inner:hover,.el-select select:hover{border-color:var(--t4);}
+.el-input__inner:focus,.el-select select:focus{border-color:var(--primary);}
+.el-input--sm .el-input__inner{height:28px;font-size:12px;}
+.el-textarea{padding:9px 12px;min-height:90px;line-height:1.7;resize:vertical;}
+.el-select select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--t3) 50%),linear-gradient(135deg,var(--t3) 50%,transparent 50%);background-position:calc(100% - 14px) 14px,calc(100% - 9px) 14px;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:28px;}
+.el-radio-group,.el-checkbox-group{display:flex;gap:14px;flex-wrap:wrap;}
+.el-radio,.el-checkbox{display:inline-flex;align-items:center;gap:6px;cursor:pointer;color:var(--t2);font-size:13px;user-select:none;}
+.el-radio input,.el-checkbox input{margin:0;accent-color:var(--primary);width:14px;height:14px;}
+.el-radio-group--vertical{flex-direction:column;gap:8px;}
+.el-switch{display:inline-flex;align-items:center;gap:8px;cursor:pointer;font-size:13px;}
+.el-switch input{display:none;}
+.el-switch .track{width:36px;height:18px;border-radius:9px;background:var(--t4);position:relative;transition:.2s;}
+.el-switch .track::after{content:"";position:absolute;top:1.5px;left:1.5px;width:15px;height:15px;border-radius:50%;background:#fff;transition:.2s;}
+.el-switch input:checked + .track{background:var(--primary);}
+.el-switch input:checked + .track::after{left:19.5px;}
+
+/* ===== 表格 ===== */
+.el-table{font-size:13px;}
+.el-table th{background:var(--fill);color:var(--t2);font-weight:600;text-align:left;padding:9px 12px;border-bottom:1px solid var(--bd-xl);white-space:nowrap;}
+.el-table td{padding:8px 12px;border-bottom:1px solid var(--bd-xl);color:var(--t2);vertical-align:middle;}
+.el-table tbody tr:hover td{background:var(--fill);}
+.el-table tbody tr.clickable{cursor:pointer;}
+.el-table tbody tr.is-active td{background:var(--primary-light);}
+.el-table td.num,.el-table th.num{text-align:right;font-variant-numeric:tabular-nums;}
+.el-table .t-main{color:var(--t1);font-weight:500;}
+.table-wrap{overflow-x:auto;}
+.empty-row td{text-align:center;color:var(--t3);padding:28px 12px;}
+
+/* ===== KPI 卡片 ===== */
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin-bottom:16px;}
+.kpi{background:#fff;border:1px solid var(--bd-xl);border-radius:var(--radius);padding:15px 18px;box-shadow:0 1px 4px rgba(0,0,0,.04);}
+.kpi-label{font-size:12px;color:var(--t3);display:flex;align-items:center;gap:6px;margin-bottom:8px;}
+.kpi-value{font-size:26px;font-weight:600;color:var(--t1);line-height:1.1;font-variant-numeric:tabular-nums;}
+.kpi-value .unit{font-size:13px;font-weight:400;color:var(--t3);margin-left:3px;}
+.kpi-sub{font-size:12px;color:var(--t3);margin-top:7px;}
+.kpi--primary .kpi-value{color:var(--primary);}
+.kpi--success .kpi-value{color:var(--success);}
+.kpi--warning .kpi-value{color:var(--warning);}
+.kpi--danger .kpi-value{color:var(--danger);}
+
+/* ===== 图表 ===== */
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.chart-grid--1{grid-template-columns:1fr;}
+.chart-box{padding:8px 4px 0;}
+.chart-box svg{display:block;width:100%;height:auto;}
+.chart-legend{display:flex;gap:16px;flex-wrap:wrap;padding:6px 20px 14px;font-size:12px;color:var(--t2);}
+.legend-item{display:inline-flex;align-items:center;gap:5px;}
+.dot{width:9px;height:9px;border-radius:2px;flex:0 0 9px;}
+.dot--line{height:3px;border-radius:2px;}
+.axis-text{font-size:11px;fill:var(--t3);}
+.grid-line{stroke:var(--bd-xl);stroke-width:1;}
+.ref-line{stroke:var(--danger);stroke-width:1;stroke-dasharray:4 3;opacity:.7;}
+
+/* ===== 上传区 ===== */
+.upload-zone{border:1px dashed var(--bd);border-radius:var(--radius);background:#fff;padding:30px 20px;text-align:center;cursor:pointer;transition:.2s;}
+.upload-zone:hover{border-color:var(--primary);background:var(--primary-light);}
+.upload-zone .big{font-size:15px;color:var(--t2);margin-bottom:6px;}
+.upload-zone .big b{color:var(--primary);}
+.upload-zone .tip{font-size:12px;color:var(--t3);}
+.upload-icon{width:44px;height:44px;margin:0 auto 12px;border-radius:50%;background:var(--primary-light);color:var(--primary);display:flex;align-items:center;justify-content:center;font-size:20px;}
+.progress{height:6px;border-radius:3px;background:var(--bd-xl);overflow:hidden;margin-top:14px;}
+.progress > i{display:block;height:100%;background:var(--primary);width:0;transition:width .25s;}
+
+/* ===== 抽屉 / 弹窗 / 消息 ===== */
+.drawer-mask,.dialog-mask{position:fixed;inset:0;background:rgba(0,0,0,.35);z-index:60;opacity:0;pointer-events:none;transition:opacity .25s;}
+.drawer-mask.show,.dialog-mask.show{opacity:1;pointer-events:auto;}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:440px;max-width:92vw;background:#fff;z-index:61;transform:translateX(100%);transition:transform .28s;display:flex;flex-direction:column;}
+.drawer.show{transform:translateX(0);}
+.drawer-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--bd-xl);}
+.drawer-head h3{margin:0;font-size:15px;font-weight:600;}
+.drawer-body{padding:18px 20px;overflow-y:auto;}
+.drawer .close,.dialog .close{background:none;border:0;font-size:18px;color:var(--t3);cursor:pointer;line-height:1;padding:4px;}
+.dialog-mask{align-items:center;justify-content:center;display:flex;}
+.dialog{width:420px;max-width:92vw;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);transform:scale(.94);transition:transform .25s;}
+.dialog-mask.show .dialog{transform:scale(1);}
+.dialog-head{padding:18px 20px 6px;font-size:15px;font-weight:600;}
+.dialog-body{padding:6px 20px 18px;color:var(--t2);font-size:13px;line-height:1.7;}
+.dialog-foot{padding:12px 20px 18px;display:flex;justify-content:flex-end;gap:10px;}
+.messages{position:fixed;top:18px;left:50%;transform:translateX(-50%);z-index:90;display:flex;flex-direction:column;gap:8px;align-items:center;pointer-events:none;}
+.message{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--bd-xl);border-left:3px solid var(--info);border-radius:var(--radius);box-shadow:var(--shadow);padding:10px 16px;font-size:13px;color:var(--t1);animation:msgIn .25s ease;}
+.message--success{border-left-color:var(--success);}
+.message--warning{border-left-color:var(--warning);}
+.message--error{border-left-color:var(--danger);}
+@keyframes msgIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:none;}}
+
+/* ===== 通用 ===== */
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.flex-between{display:flex;align-items:center;justify-content:space-between;gap:12px;}
+.gap8{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.stack{display:flex;flex-direction:column;gap:12px;}
+.desc-list{display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:13px;}
+.desc-list dt{color:var(--t3);}
+.desc-list dd{margin:0;color:var(--t1);font-variant-numeric:tabular-nums;}
+.section-title{font-size:13px;font-weight:600;color:var(--t1);margin:0 0 10px;}
+.divider{height:1px;background:var(--bd-xl);margin:16px 0;}
+.badge-count{display:inline-flex;align-items:center;justify-content:center;min-width:18px;height:18px;padding:0 5px;border-radius:9px;background:var(--danger);color:#fff;font-size:11px;font-weight:600;}
+.pill-tabs{display:inline-flex;border:1px solid var(--bd);border-radius:var(--radius);overflow:hidden;}
+.pill-tabs button{border:0;background:#fff;padding:7px 16px;font-size:13px;color:var(--t2);cursor:pointer;border-right:1px solid var(--bd);}
+.pill-tabs button:last-child{border-right:0;}
+.pill-tabs button.active{background:var(--primary);color:#fff;}
+/* ===== 页面级 ===== */
+.page{display:none;}
+.page.show{display:block;animation:fadeIn .2s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+.page-intro{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:16px;}
+.page-intro .txt{font-size:13px;color:var(--t2);max-width:900px;}
+
+/* 文件列表 */
+.file-name{display:flex;align-items:center;gap:8px;}
+.file-icon{width:20px;height:20px;flex:0 0 20px;border-radius:3px;background:var(--success-light);color:var(--success);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;}
+.row-actions{display:flex;gap:2px;}
+
+/* 映射面板 */
+.map-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 14px;}
+.map-cell .small{margin-bottom:4px;}
+.limit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 14px;}
+.preview-scroll{overflow-x:auto;border:1px solid var(--bd-xl);border-radius:var(--radius);}
+
+/* 记录详情 */
+.detail-row{display:grid;grid-template-columns:112px 1fr;gap:8px 12px;padding:9px 0;border-bottom:1px dashed var(--bd-xl);font-size:13px;}
+.detail-row:last-child{border-bottom:0;}
+.detail-row .k{color:var(--t3);}
+.detail-row .v{color:var(--t1);font-variant-numeric:tabular-nums;}
+.remark-box{background:var(--fill);border-left:3px solid var(--primary);border-radius:3px;padding:10px 12px;font-size:13px;color:var(--t1);margin-top:6px;}
+
+/* 章节标题 */
+.sec-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 10px;}
+.sec-head h3{font-size:14px;font-weight:600;margin:0;}
+.sec-head .hint{font-size:12px;color:var(--t3);}
+
+/* 结论 / 判定 */
+.verdict{display:inline-flex;align-items:center;gap:5px;font-size:13px;font-weight:500;}
+.v-up{color:var(--success);}
+.v-down{color:var(--danger);}
+.v-flat{color:var(--t3);}
+.delta{font-variant-numeric:tabular-nums;font-weight:600;}
+
+/* AI 解读 */
+.ai-doc{border:1px solid var(--bd-xl);border-radius:var(--radius);padding:18px 20px;background:#fff;font-size:13.5px;line-height:1.9;color:var(--t1);min-height:260px;white-space:pre-wrap;}
+.ai-doc h4{font-size:13.5px;font-weight:600;margin:16px 0 6px;color:var(--t1);}
+.ai-doc h4:first-child{margin-top:0;}
+.kb-legend{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--t2);}
+.kb-item{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:var(--radius);border:1px dashed var(--bd);}
+.kb-key{font-weight:600;color:var(--primary);}
+
+/* 截图式说明 */
+.blk{background:var(--fill);border:1px solid var(--bd-xl);border-radius:var(--radius);padding:12px 14px;font-size:12.5px;line-height:1.85;color:var(--t2);}
+.blk b{color:var(--t1);}
+.blk .emo{color:var(--primary);font-weight:600;}
+
+@media (max-width:1180px){
+  .chart-grid,.grid-2,.grid-3{grid-template-columns:1fr;}
+  .map-grid{grid-template-columns:repeat(2,1fr);}
+  .limit-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media (max-width:860px){
+  .sidebar{width:220px;flex-basis:220px;}
+  .tb-left p{display:none;}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="logo">
+      <div class="logo-mark">质</div>
+      <div class="logo-text"><b>质量数据分析</b><span>与报告生成工具 · 原型</span></div>
+    </div>
+    <nav class="nav" id="nav"></nav>
+    <div class="config" id="config">
+      <div class="cfg-title">口径配置 <button class="collapse" id="cfgToggle">收起</button></div>
+      <div id="cfgBody">
+        <div class="cfg-row">
+          <span class="cfg-label">口径模式</span>
+          <div class="el-radio-group el-radio-group--vertical">
+            <label class="el-radio"><input type="radio" name="basisMode" value="current" checked>当期口径（还原现场判定）</label>
+            <label class="el-radio"><input type="radio" name="basisMode" value="unified">统一口径（跨周可比）</label>
+          </div>
+        </div>
+        <div class="cfg-row">
+          <span class="cfg-label">统一基准预设</span>
+          <div class="el-select"><select id="preset">
+            <option value="latest">最新标准（5–7周）</option>
+            <option value="strict">复合最严标准</option>
+            <option value="custom">自定义</option>
+          </select></div>
+        </div>
+        <div class="cfg-row">
+          <span class="cfg-label">统一基准限值</span>
+          <div class="cfg-limits">
+            <div><div class="small muted">外径下限</div><div class="el-input el-input--sm"><input class="el-input__inner" id="limDmin" type="number" step="0.01" value="31.46"></div></div>
+            <div><div class="small muted">外径上限</div><div class="el-input el-input--sm"><input class="el-input__inner" id="limDmax" type="number" step="0.01" value="32.02"></div></div>
+            <div><div class="small muted">壁厚下限</div><div class="el-input el-input--sm"><input class="el-input__inner" id="limMn" type="number" step="0.01" value="1.78"></div></div>
+            <div><div class="small muted">壁厚上限</div><div class="el-input el-input--sm"><input class="el-input__inner" id="limMx" type="number" step="0.01" value="2.11"></div></div>
+          </div>
+        </div>
+        <div class="cfg-row">
+          <span class="cfg-label">小样本阈值（条）</span>
+          <div class="el-input el-input--sm"><input class="el-input__inner" id="smallN" type="number" value="30"></div>
+        </div>
+        <div class="cfg-row">
+          <span class="cfg-label">DeepSeek API Key</span>
+          <div class="el-input el-input--sm"><input class="el-input__inner" id="apiKey" type="password" placeholder="sk-••••••••（环境变量已配置）"></div>
+        </div>
+        <div class="gap8">
+          <button class="btn btn--primary btn--sm" id="applyCfg" disabled>应用</button>
+          <button class="btn btn--sm" id="resetCfg">恢复默认</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div class="tb-left">
+        <h1 id="pageTitle">数据导入</h1>
+        <p id="pageDesc">上传脱敏 Excel，完成列映射与限值填写</p>
+      </div>
+      <div class="tb-right">
+        <span class="el-tag el-tag--info" id="basisTag">当期口径</span>
+        <span class="el-tag el-tag--plain" id="dataTag">未加载数据</span>
+        <span class="el-tag el-tag--warning hidden" id="pendingTag">口径有未应用修改</span>
+      </div>
+    </header>
+    <div class="content" id="content">
+      <!-- P1 数据导入 -->
+      <section class="page show" id="page-import">
+        <div class="el-alert el-alert--info">
+          <span>ⓘ</span>
+          <div>本原型内嵌附件 7 周共 <b>452</b> 条脱敏记录，页面内所有合格率、置信区间、判定翻转都由这些数据<b>实时计算</b>。切换侧边栏的统一基准，数字会当场变化。</div>
+        </div>
+        <div class="el-card">
+          <div class="card-head"><h3>1. 上传脱敏 Excel</h3><span class="sub">支持 .xlsx / .xls，可多选，也可分批补传</span></div>
+          <div class="card-body">
+            <div class="upload-zone" id="uploadZone">
+              <div class="upload-icon">↑</div>
+              <div class="big">将文件拖到此处，或 <b>点击上传</b></div>
+              <div class="tip">按周次命名更便于核对，例如 1周_20260312.xlsx</div>
+            </div>
+            <div class="progress hidden" id="uploadProgress"><i></i></div>
+          </div>
+        </div>
+        <div class="el-card hidden" id="fileCard">
+          <div class="card-head"><h3>2. 文件列表与列映射</h3><span class="sub">点击任意一行查看该文件的列映射与限值，限值可直接修改</span></div>
+          <div class="card-body tight"><div class="table-wrap"><table class="el-table" id="fileTable"></table></div></div>
+        </div>
+        <div class="el-card hidden" id="mapCard">
+          <div class="card-head"><h3 id="mapTitle">3. 列映射与当期限值</h3><span class="sub" id="mapSub"></span></div>
+          <div class="card-body" id="mapBody"></div>
+        </div>
+        <div class="el-card hidden" id="checkCard">
+          <div class="card-head">
+            <h3>4. 校验结果</h3>
+            <div class="gap8"><span class="sub" id="checkSub"></span><button class="btn btn--primary btn--sm" id="goAnalyze">进入分析 →</button></div>
+          </div>
+          <div class="card-body" id="checkBody"></div>
+        </div>
+      </section>
+
+      <!-- P2 分析总览 -->
+      <section class="page" id="page-overview">
+        <div id="overviewAlerts"></div>
+        <div class="kpi-grid" id="kpiGrid"></div>
+        <div class="el-card">
+          <div class="card-head"><h3>合格率趋势</h3><span class="sub" id="rateChartSub">含 95% 置信区间（Wilson）</span></div>
+          <div class="chart-box" id="rateChart"></div>
+          <div class="chart-legend" id="rateLegend"></div>
+        </div>
+        <div class="grid-2">
+          <div class="el-card">
+            <div class="card-head"><h3>平均外径趋势</h3><span class="sub">虚线为限值参考</span></div>
+            <div class="chart-box" id="dimChart"></div>
+          </div>
+          <div class="el-card">
+            <div class="card-head"><h3>壁厚趋势</h3><span class="sub">最小壁厚均值 / 最大壁厚均值</span></div>
+            <div class="chart-box" id="wallChart"></div>
+          </div>
+        </div>
+        <div class="grid-2">
+          <div class="el-card">
+            <div class="card-head"><h3>异常类型帕累托</h3><span class="sub">柱为记录级计数，折线为累计占比</span></div>
+            <div class="chart-box" id="paretoChart"></div>
+          </div>
+          <div class="el-card">
+            <div class="card-head"><h3>各周指标明细</h3><span class="sub">当期口径 / 统一口径并列</span></div>
+            <div class="table-wrap" id="kpiTable"></div>
+          </div>
+        </div>
+        <div class="el-card">
+          <div class="card-head"><h3>异常构成（记录级 vs 指标级）</h3><span class="sub">同一记录可命中多个指标项</span></div>
+          <div class="table-wrap" id="anomTable"></div>
+        </div>
+      </section>
+
+      <!-- P3 周间对比 -->
+      <section class="page" id="page-compare">
+        <div class="el-card">
+          <div class="card-head">
+            <h3>周间对比</h3>
+            <div class="pill-tabs" id="compareMode">
+              <button data-mode="chain" class="active">环比</button>
+              <button data-mode="all">全周次总览</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="blk">差异拆成三列：<b>数值变化</b>用统一口径计算，可比；<b>标准变化</b>为该周「当期 − 统一」，反映限值调整的影响；<b>抽样波动</b>判断两周置信区间是否重叠，重叠即不构成有效变化。</div>
+          </div>
+          <div class="card-body tight"><div class="table-wrap" id="diffTable"></div></div>
+        </div>
+        <div class="el-card">
+          <div class="card-head"><h3>异常明细</h3><span class="sub" id="detailSub">点击任意一行查看记录详情</span></div>
+          <div class="card-body tight"><div class="table-wrap" id="detailTable"></div></div>
+        </div>
+      </section>
+
+      <!-- P4 AI 解读 -->
+      <section class="page" id="page-ai">
+        <div class="el-card">
+          <div class="card-head">
+            <h3>AI 解读</h3>
+            <div class="gap8">
+              <label class="el-switch"><input type="checkbox" id="offlineSim"><span class="track"></span>模拟断网降级</label>
+              <button class="btn btn--primary btn--sm" id="genBtn">生成解读</button>
+              <button class="btn btn--sm" id="regenBtn" disabled>重新生成</button>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="el-alert el-alert--info" id="aiMeta">尚未生成。AI 只负责文字归纳，全部数值来自程序计算，生成后会执行数字回查。</div>
+            <div class="ai-doc" id="aiDoc">点击「生成解读」，将基于当前口径的指标结果生成四段说明：整体趋势、显著变化、异常结构、待核实事项。</div>
+            <div class="small muted" style="margin-top:8px">人工编辑后的内容在导出时原样使用，系统不再对其中的数字做回查。</div>
+          </div>
+        </div>
+        <div class="el-card">
+          <div class="card-head"><h3>提示词硬约束</h3><span class="sub">prompts/*.md，可独立修改，无需改代码</span></div>
+          <div class="card-body">
+            <div class="blk">
+              1. 不产生任何未出现在输入 JSON 中的数值<br>
+              2. 不做无依据的根因推断<br>
+              3. 数据不足时固定输出「数据不足，无法确认原因」<br>
+              4. 落在抽样波动范围内的差异，不得表述为上升或下降
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- P5 报告导出 -->
+      <section class="page" id="page-export">
+        <div class="el-card">
+          <div class="card-head"><h3>报告导出</h3><span class="sub">章节 1–8、指标 1–14 按需求文档全含</span></div>
+          <div class="card-body">
+            <div class="grid-2">
+              <div>
+                <p class="section-title">报告章节</p>
+                <div class="el-checkbox-group el-radio-group--vertical" id="secList"></div>
+              </div>
+              <div>
+                <p class="section-title">输出格式</p>
+                <div class="el-checkbox-group el-radio-group--vertical" id="fmtList"></div>
+                <div class="divider"></div>
+                <p class="section-title">导出信息</p>
+                <dl class="desc-list">
+                  <dt>输出目录</dt><dd>output/</dd>
+                  <dt>命名格式</dt><dd>报告类型_数据范围_生成时间</dd>
+                  <dt>当前口径</dt><dd id="exportBasis">当期口径</dd>
+                </dl>
+                <div style="margin-top:16px"><button class="btn btn--primary" id="exportBtn">导出报告</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="el-card">
+          <div class="card-head"><h3>产物列表</h3><span class="sub">保留最近 10 条，超出部分不自动删除</span></div>
+          <div class="card-body tight"><div class="table-wrap" id="exportList"></div></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+<div class="drawer-mask" id="drawerMask"></div>
+<aside class="drawer" id="drawer">
+  <div class="drawer-head"><h3 id="drawerTitle">记录详情</h3><button class="close" id="drawerClose">✕</button></div>
+  <div class="drawer-body" id="drawerBody"></div>
+</aside>
+<div class="dialog-mask" id="dialogMask">
+  <div class="dialog">
+    <div class="dialog-head" id="dialogTitle">提示</div>
+    <div class="dialog-body" id="dialogBody"></div>
+    <div class="dialog-foot">
+      <button class="btn" id="dialogCancel">取消</button>
+      <button class="btn btn--primary" id="dialogOk">确定</button>
+    </div>
+  </div>
+</div>
+<div class="messages" id="messages"></div>
+<script src="weeks-data.js"></script>
+<script>
+(function(){
+'use strict';
+
+/* ================= 基础工具 ================= */
+const $  = s => document.querySelector(s);
+const $$ = s => Array.from(document.querySelectorAll(s));
+const nf = (x,d=3) => Number(x).toFixed(d);
+const pf = (x,d=1) => (x*100).toFixed(d) + '%';
+const esc = s => String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const Z = 1.959964;
+
+function wilson(k,n){
+  if(!n) return null;
+  const p=k/n, z2=Z*Z, den=1+z2/n;
+  const c=(p+z2/(2*n))/den;
+  const h=(Z*Math.sqrt(p*(1-p)/n + z2/(4*n*n)))/den;
+  return [Math.max(0,c-h), Math.min(1,c+h)];
+}
+function mean(a){ return a.length ? a.reduce((s,x)=>s+x,0)/a.length : 0; }
+function sd(a){
+  if(a.length<2) return 0;
+  const m=mean(a);
+  return Math.sqrt(a.reduce((s,x)=>s+(x-m)*(x-m),0)/(a.length-1));
+}
+function notify(text,type){
+  const el=document.createElement('div');
+  el.className='message'+(type?' message--'+type:'');
+  const ic = type==='success'?'✓':type==='warning'?'!':type==='error'?'✕':'ⓘ';
+  el.innerHTML='<span>'+ic+'</span><span>'+esc(text)+'</span>';
+  $('#messages').appendChild(el);
+  setTimeout(()=>{ el.style.opacity='0'; el.style.transition='opacity .3s'; setTimeout(()=>el.remove(),320); },2300);
+}
+let dialogCb=null;
+function confirmDialog(title,body,cb){
+  $('#dialogTitle').textContent=title;
+  $('#dialogBody').innerHTML=body;
+  dialogCb=cb;
+  $('#dialogMask').classList.add('show');
+}
+$('#dialogCancel').onclick=()=>{ $('#dialogMask').classList.remove('show'); dialogCb=null; };
+$('#dialogOk').onclick=()=>{ $('#dialogMask').classList.remove('show'); if(dialogCb) dialogCb(); dialogCb=null; };
+
+/* ================= 数据与状态 ================= */
+const RAW = window.WEEKS_DATA.weeks.map(w=>({
+  label:w.label, date:w.date, limits:w.limits.slice(), rows:w.rows
+}));
+const PRESETS = {
+  latest:{ limits:[31.46,32.02,1.78,2.11] },
+  strict:{ limits:[31.54,31.94,1.78,2.10] }
+};
+const PAGES = [
+  {id:'import',   title:'数据导入', desc:'上传脱敏 Excel，完成列映射与限值填写', need:0},
+  {id:'overview', title:'分析总览', desc:'关键指标、合格率趋势、异常结构', need:1},
+  {id:'compare',  title:'周间对比', desc:'把差异拆成数值变化、标准变化、抽样波动', need:1},
+  {id:'ai',       title:'AI 解读',  desc:'程序算数、AI 写话，生成后执行数字回查', need:1},
+  {id:'export',   title:'报告导出', desc:'导出 Word / Excel / PDF 报告', need:1}
+];
+const state = {
+  page:'import', uploaded:false, activeFile:0,
+  basisMode:'current', preset:'latest',
+  applied:[31.46,32.02,1.78,2.11],
+  draft:[31.46,32.02,1.78,2.11],
+  appliedPreset:'latest', smallN:30,
+  pending:false, compareMode:'chain',
+  aiText:'', aiInfo:null, outputs:[], metrics:null
+};
+
+/* ================= 计算 ================= */
+function score(row,L){
+  const d=row[0], mn=row[1], mx=row[2], issues=[];
+  if(d < L[0]) issues.push('外径偏小');
+  else if(d > L[1]) issues.push('外径偏大');
+  if(mn < L[2]) issues.push('壁厚偏薄');
+  if(mx > L[3]) issues.push('壁厚偏厚');
+  return {pass:issues.length===0, issues};
+}
+function agg(idx,L){
+  const w=RAW[idx], ds=[],mns=[],mxs=[];
+  let pass=0, rec=0; const ind={}, remarks={};
+  w.rows.forEach(r=>{
+    const s=score(r,L);
+    if(s.pass) pass++; else rec++;
+    s.issues.forEach(t=>ind[t]=(ind[t]||0)+1);
+    const note=(r[4]||'').trim();
+    if(note) remarks[note]=(remarks[note]||0)+1;
+    ds.push(r[0]); mns.push(r[1]); mxs.push(r[2]);
+  });
+  const n=w.rows.length, rate=n?pass/n:0;
+  const mD=mean(ds), sD=sd(ds), mMn=mean(mns), mMx=mean(mxs);
+  const cp=(L[1]-L[0])/(6*sD), cpk=Math.min((L[1]-mD),(mD-L[0]))/(3*sD);
+  return {n,pass,rec,rate,ci:wilson(pass,n),ind,remarks,
+    meanD:mD, rangeD:(Math.max.apply(null,ds)-Math.min.apply(null,ds)), sdD:sD,
+    meanMn:mMn, minMn:Math.min.apply(null,mns), meanMx:mMx, maxMx:Math.max.apply(null,mxs),
+    cp, cpk};
+}
+function buildMetrics(){
+  const weeks=RAW.map((w,i)=>{
+    const cur=agg(i,w.limits), uni=agg(i,state.applied);
+    return {label:w.label, date:w.date, limits:w.limits.slice(), cur, uni,
+      flips:Math.abs(cur.pass-uni.pass), small:cur.n<state.smallN};
+  });
+  const indTotal={};
+  weeks.forEach(w=>Object.keys(w.cur.ind).forEach(k=>indTotal[k]=(indTotal[k]||0)+w.cur.ind[k]));
+  return {
+    weeks,
+    totalN:weeks.reduce((s,w)=>s+w.cur.n,0),
+    totalPass:weeks.reduce((s,w)=>s+w.cur.pass,0),
+    totalRec:weeks.reduce((s,w)=>s+w.cur.rec,0),
+    indTotal,
+    indSum:Object.keys(indTotal).reduce((s,k)=>s+indTotal[k],0),
+    flips:weeks.reduce((s,w)=>s+w.flips,0),
+    smallWeeks:weeks.filter(w=>w.small)
+  };
+}
+function pairInfo(a,b){
+  const A=state.metrics.weeks[a], B=state.metrics.weeks[b];
+  const oa=A.uni.ci, ob=B.uni.ci;
+  const overlap=(oa&&ob)&&(oa[1]>=ob[0]&&ob[1]>=oa[0]);
+  const delta=B.uni.rate-A.uni.rate;
+  return {A,B,delta,overlap, verdict: overlap?'flat':(delta>0?'up':'down')};
+}
+
+/* ================= 图表 ================= */
+function lineChart(cfg){
+  const W=760, H=cfg.height||250, P={l:60,r:22,t:16,b:34};
+  const iw=W-P.l-P.r, ih=H-P.t-P.b, labels=cfg.labels;
+  let pool=[];
+  cfg.series.forEach(s=>s.values.forEach(v=>{ if(v!=null) pool.push(v); }));
+  if(cfg.band) cfg.band.forEach(v=>{ if(v) pool.push(v[0],v[1]); });
+  if(cfg.refs) cfg.refs.forEach(r=>pool.push(r.v));
+  let lo=Math.min.apply(null,pool), hi=Math.max.apply(null,pool);
+  const sp=(hi-lo)||Math.abs(hi)||1; lo-=sp*0.2; hi+=sp*0.2;
+  if(cfg.clamp){ lo=Math.max(lo,cfg.clamp[0]); hi=Math.min(hi,cfg.clamp[1]); }
+  const X=i=>P.l+(labels.length<2?iw/2:i*iw/(labels.length-1));
+  const Y=v=>P.t+ih-(v-lo)/(hi-lo)*ih;
+  const fmt=cfg.tip||(v=>nf(v,1));
+  let svg='<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid meet">';
+  for(let t=0;t<=4;t++){
+    const y=P.t+ih*t/4, v=hi-(hi-lo)*t/4;
+    svg+='<line class="grid-line" x1="'+P.l+'" y1="'+y+'" x2="'+(W-P.r)+'" y2="'+y+'"/>';
+    svg+='<text class="axis-text" x="'+(P.l-8)+'" y="'+(y+4)+'" text-anchor="end">'+fmt(v)+'</text>';
+  }
+  (cfg.refs||[]).forEach(r=>{
+    if(r.v<lo||r.v>hi) return;
+    svg+='<line class="ref-line" x1="'+P.l+'" y1="'+Y(r.v)+'" x2="'+(W-P.r)+'" y2="'+Y(r.v)+'"/>';
+    svg+='<text class="axis-text" x="'+(W-P.r)+'" y="'+(Y(r.v)-5)+'" text-anchor="end" fill="#f56c6c">'+esc(r.t)+'</text>';
+  });
+  if(cfg.band){
+    let pts='';
+    cfg.band.forEach((b,i)=>{ if(b) pts+=X(i)+','+Y(b[1])+' '; });
+    for(let i=cfg.band.length-1;i>=0;i--){ const b=cfg.band[i]; if(b) pts+=X(i)+','+Y(b[0])+' '; }
+    svg+='<polygon points="'+pts.trim()+'" fill="'+cfg.bandColor+'" opacity="0.18"/>';
+  }
+  cfg.series.forEach(s=>{
+    let d='', started=false;
+    s.values.forEach((v,i)=>{ if(v==null) return; d+=(started?'L':'M')+X(i)+','+Y(v)+' '; started=true; });
+    svg+='<path d="'+d.trim()+'" fill="none" stroke="'+s.color+'" stroke-width="'+(s.width||2)+'" stroke-dasharray="'+(s.dash||'')+'" stroke-linejoin="round"/>';
+    s.values.forEach((v,i)=>{
+      if(v==null) return;
+      const small=cfg.smallFlags&&cfg.smallFlags[i];
+      const tip=(s.name||'')+' '+labels[i]+'：'+fmt(v)+(small?'（样本量不足）':'');
+      if(small){
+        svg+='<circle cx="'+X(i)+'" cy="'+Y(v)+'" r="4.5" fill="#fff" stroke="'+s.color+'" stroke-width="2" stroke-dasharray="2 2"><title>'+esc(tip)+'</title></circle>';
+      }else{
+        svg+='<circle cx="'+X(i)+'" cy="'+Y(v)+'" r="'+(s.bold?3.6:3)+'" fill="'+s.color+'"><title>'+esc(tip)+'</title></circle>';
+      }
+    });
+  });
+  labels.forEach((l,i)=>{
+    const small=cfg.smallFlags&&cfg.smallFlags[i];
+    svg+='<text class="axis-text" x="'+X(i)+'" y="'+(H-12)+'" text-anchor="middle">'+esc(l)+(small?' *':'')+'</text>';
+  });
+  return svg+'</svg>';
+}
+function paretoChart(items){
+  const W=760,H=250,P={l:58,r:58,t:20,b:40};
+  const iw=W-P.l-P.r, ih=H-P.t-P.b;
+  const vals=items.map(i=>i.v), max=Math.max.apply(null,vals.concat([1]));
+  const total=vals.reduce((s,x)=>s+x,0)||1;
+  const bw=Math.min(70, iw/items.length*0.5);
+  let acc=0;
+  let svg='<svg viewBox="0 0 '+W+' '+H+'" preserveAspectRatio="xMidYMid meet">';
+  for(let t=0;t<=4;t++){
+    const y=P.t+ih*t/4;
+    svg+='<line class="grid-line" x1="'+P.l+'" y1="'+y+'" x2="'+(W-P.r)+'" y2="'+y+'"/>';
+    svg+='<text class="axis-text" x="'+(P.l-8)+'" y="'+(y+4)+'" text-anchor="end">'+Math.round(max-max*t/4)+'</text>';
+    svg+='<text class="axis-text" x="'+(W-P.r+8)+'" y="'+(y+4)+'">'+(100-25*t)+'%</text>';
+  }
+  const pts=[];
+  items.forEach((it,i)=>{
+    const x=P.l+iw*(i+0.5)/items.length, h=it.v/max*ih, y=P.t+ih-h;
+    svg+='<rect x="'+(x-bw/2)+'" y="'+y+'" width="'+bw+'" height="'+h+'" rx="2" fill="#409eff" opacity="0.85"><title>'+esc(it.k)+'：'+it.v+' 条</title></rect>';
+    svg+='<text class="axis-text" x="'+x+'" y="'+(y-6)+'" text-anchor="middle" fill="#303133">'+it.v+'</text>';
+    svg+='<text class="axis-text" x="'+x+'" y="'+(H-16)+'" text-anchor="middle">'+esc(it.k)+'</text>';
+    acc+=it.v; pts.push([x, P.t+ih-(acc/total)*ih, Math.round(acc/total*100)]);
+  });
+  if(pts.length>1){
+    svg+='<path d="'+pts.map((p,i)=>(i?'L':'M')+p[0]+','+p[1]).join(' ')+'" fill="none" stroke="#e6a23c" stroke-width="2"/>';
+  }
+  pts.forEach(p=>{
+    svg+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="3.5" fill="#e6a23c"><title>累计 '+p[2]+'%</title></circle>';
+  });
+  return svg+'</svg>';
+}
+
+/* ================= 框架 ================= */
+function renderNav(){
+  $('#nav').innerHTML = PAGES.map((p,i)=>{
+    const locked = p.need && !state.uploaded;
+    return '<div class="nav-item'+(state.page===p.id?' active':'')+(locked?' locked':'')+'" data-page="'+p.id+'">'
+      + '<span class="idx">'+(i+1)+'</span><span>'+p.title+'</span>'
+      + (locked?'<span class="small muted" style="margin-left:auto">待导入</span>':'')
+      + '</div>';
+  }).join('');
+  $$('#nav .nav-item').forEach(el=>{
+    el.onclick=()=>{
+      const id=el.dataset.page, def=PAGES.filter(p=>p.id===id)[0];
+      if(def.need && !state.uploaded){ notify('请先在「数据导入」完成上传与校验','warning'); return; }
+      go(id);
+    };
+  });
+}
+function go(id){
+  state.page=id;
+  const def=PAGES.filter(p=>p.id===id)[0];
+  $('#pageTitle').textContent=def.title;
+  $('#pageDesc').textContent=def.desc;
+  $$('.page').forEach(el=>el.classList.toggle('show', el.id==='page-'+id));
+  renderNav();
+  if(id==='overview') renderOverview();
+  if(id==='compare') renderCompare();
+  if(id==='export') renderExport();
+}
+function renderTop(){
+  $('#basisTag').textContent = state.basisMode==='current' ? '当期口径' : '统一口径';
+  $('#basisTag').className = 'el-tag ' + (state.basisMode==='current'?'el-tag--info':'el-tag--primary');
+  $('#dataTag').textContent = state.uploaded ? ('已加载 7 周 · '+state.metrics.totalN+' 条') : '未加载数据';
+  $('#pendingTag').classList.toggle('hidden', !state.pending);
+  $('#applyCfg').disabled = !state.pending;
+}
+
+/* ================= P1 数据导入 ================= */
+let FILES=[];
+function mockFiles(){
+  return RAW.map((w,i)=>({ name:w.label+'_'+w.date.replace(/\//g,'')+'.xlsx',
+    size:(38+i*4.7).toFixed(1)+' KB', rows:w.rows.length }));
+}
+$('#uploadZone').onclick=()=>{
+  if(state.uploaded){ notify('数据已加载，可继续查看各文件的列映射','info'); return; }
+  const bar=$('#uploadProgress'); bar.classList.remove('hidden');
+  const fill=bar.querySelector('i'); let p=0;
+  const t=setInterval(()=>{
+    p+=Math.random()*26+14; fill.style.width=Math.min(p,100)+'%';
+    if(p>=100){
+      clearInterval(t);
+      setTimeout(()=>{
+        bar.classList.add('hidden'); fill.style.width='0';
+        FILES=mockFiles(); state.uploaded=true; state.activeFile=0;
+        state.metrics=buildMetrics();
+        $('#fileCard').classList.remove('hidden');
+        $('#mapCard').classList.remove('hidden');
+        $('#checkCard').classList.remove('hidden');
+        renderFiles(); renderMap(); renderCheck(); renderTop();
+        notify('7 个文件解析完成，共 '+state.metrics.totalN+' 条记录','success');
+      },280);
+    }
+  },120);
+};
+function renderFiles(){
+  let h='<thead><tr><th style="width:34%">文件名</th><th class="num">大小</th><th class="num">行数</th><th>周次</th><th>状态</th><th>操作</th></tr></thead><tbody>';
+  FILES.forEach((f,i)=>{
+    const w=RAW[i], small=w.rows.length<state.smallN;
+    h+='<tr class="clickable'+(i===state.activeFile?' is-active':'')+'" data-i="'+i+'">'
+      + '<td><div class="file-name"><span class="file-icon">X</span><span class="t-main">'+esc(f.name)+'</span></div></td>'
+      + '<td class="num">'+f.size+'</td>'
+      + '<td class="num">'+f.rows+'</td>'
+      + '<td><span class="el-tag el-tag--plain">'+esc(w.label)+'</span></td>'
+      + '<td><span class="el-tag el-tag--success">解析通过</span>'+(small?' <span class="el-tag el-tag--warning">小样本</span>':'')+'</td>'
+      + '<td><button class="btn btn--text btn--sm" data-map="'+i+'">查看映射</button></td>'
+      + '</tr>';
+  });
+  $('#fileTable').innerHTML = h+'</tbody>';
+  $$('#fileTable tbody tr').forEach(tr=>{
+    tr.onclick=e=>{
+      if(e.target.dataset.map!==undefined) return;
+      state.activeFile=Number(tr.dataset.i); renderFiles(); renderMap();
+      document.getElementById('mapCard').scrollIntoView({behavior:'smooth',block:'start'});
+    };
+  });
+  $$('#fileTable [data-map]').forEach(b=>{
+    b.onclick=()=>{ state.activeFile=Number(b.dataset.map); renderFiles(); renderMap();
+      document.getElementById('mapCard').scrollIntoView({behavior:'smooth',block:'start'}); };
+  });
+}
+function inp(id,label,val){
+  return '<div><div class="small muted">'+label+'</div><div class="el-input el-input--sm">'
+    + '<input class="el-input__inner" id="'+id+'" type="number" step="0.01" value="'+val+'"></div></div>';
+}
+function renderMap(){
+  const i=state.activeFile, w=RAW[i], hasTool=i>0;
+  $('#mapTitle').textContent='3. 列映射与当期限值 · '+w.label+'（'+w.date+'）';
+  $('#mapSub').textContent = hasTool ? '该周表为 8 列，注意两列「测量工具」不要选错' : '该周表为 5 列，无测量工具与备注列';
+  const head=[];
+  head.push('箱/扎');
+  head.push('平均外径 要求:'+w.limits[0]+'-'+w.limits[1]);
+  if(hasTool) head.push('测量工具');
+  head.push('最小壁厚 要求:'+w.limits[2]);
+  head.push('最大壁厚 要求:'+w.limits[3]);
+  if(hasTool) head.push('测量工具');
+  head.push('判定是否合格');
+  if(hasTool) head.push('备注');
+  let prev='<div class="section-title">表头与前 5 行预览</div><div class="preview-scroll"><table class="el-table"><thead><tr>';
+  head.forEach(x=>prev+='<th>'+esc(x)+'</th>');
+  prev+='</tr></thead><tbody>';
+  for(let r=0;r<5 && r<w.rows.length;r++){
+    const row=w.rows[r], s=score(row,w.limits);
+    prev+='<tr><td class="num">'+(r+1)+'</td><td class="num">'+nf(row[0])+'</td>';
+    if(hasTool) prev+='<td>π尺</td>';
+    prev+='<td class="num">'+nf(row[1])+'</td><td class="num">'+nf(row[2])+'</td>';
+    if(hasTool) prev+='<td>卡尺</td>';
+    prev+='<td>'+(s.pass?'<span class="el-tag el-tag--success">合格</span>':'<span class="el-tag el-tag--danger">'+esc(s.issues.join('/'))+'</span>')+'</td>';
+    if(hasTool) prev+='<td class="small">'+esc(row[4]||'—')+'</td>';
+    prev+='</tr>';
+  }
+  prev+='</tbody></table></div>';
+  const maps=[['箱/扎序号','箱/扎'],['平均外径','平均外径 要求:…'],['最小壁厚','最小壁厚 要求:…'],['最大壁厚','最大壁厚 要求:…'],['判定列','判定是否合格']];
+  if(hasTool) maps.splice(2,0,['测量工具列','测量工具（外径）']);
+  if(hasTool) maps.push(['备注列','备注']);
+  let mp='<div class="section-title" style="margin-top:18px">列映射（按表头文字识别，可人工修正）</div><div class="map-grid">';
+  maps.forEach(m=>{
+    mp+='<div class="map-cell"><div class="small muted">'+m[0]+'</div><div class="el-select"><select class="el-input__inner">'
+      + '<option>'+esc(m[1])+'</option><option>不指定</option></select></div></div>';
+  });
+  if(!hasTool) mp+='<div class="map-cell"><div class="small muted">备注列</div><div class="el-select"><select class="el-input__inner"><option>不指定</option></select></div></div>';
+  mp+='</div>';
+  mp+='<div class="divider"></div><div class="section-title">当期限值（该周现场标准，修改后立即复算）</div><div class="limit-grid">'
+    + inp('lm'+i+'0','外径下限',w.limits[0]) + inp('lm'+i+'1','外径上限',w.limits[1])
+    + inp('lm'+i+'2','壁厚下限',w.limits[2]) + inp('lm'+i+'3','壁厚上限',w.limits[3])
+    + '</div><div style="margin-top:14px"><button class="btn btn--primary btn--sm" id="weekApply">复算该周</button>'
+    + ' <button class="btn btn--sm" id="weekReset">恢复原始限值</button></div>';
+  $('#mapBody').innerHTML = prev+mp;
+  $('#weekApply').onclick=()=>{
+    const v=['0','1','2','3'].map(k=>parseFloat($('#lm'+i+k).value));
+    if(v.some(x=>isNaN(x))){ notify('限值必须为数字','error'); return; }
+    if(v[0]>=v[1]){ notify('外径下限应小于上限','error'); return; }
+    if(v[2]<=0||v[3]<=0){ notify('壁厚限值必须为正数','error'); return; }
+    RAW[i].limits=v; refresh('已按新的当期限值复算 '+RAW[i].label); renderMap(); renderFiles();
+  };
+  $('#weekReset').onclick=()=>{
+    RAW[i].limits=window.WEEKS_DATA.weeks[i].limits.slice();
+    refresh('已恢复 '+RAW[i].label+' 的原始限值'); renderMap(); renderFiles();
+  };
+}
+function kpi(label,value,sub,type,unit){
+  return '<div class="kpi'+(type?' kpi--'+type:'')+'"><div class="kpi-label">'+esc(label)+'</div>'
+    + '<div class="kpi-value">'+esc(value)+(unit?'<span class="unit">'+unit+'</span>':'')+'</div>'
+    + '<div class="kpi-sub">'+esc(sub)+'</div></div>';
+}
+function recheckRate(){
+  let mismatch=0,total=0;
+  RAW.forEach(w=>{ const L=w.limits; w.rows.forEach(r=>{ total++; if(score(r,L).pass !== (r[3]===1)) mismatch++; }); });
+  return {total,mismatch,rate: total?((total-mismatch)/total*100).toFixed(1):'0.0'};
+}
+function renderCheck(){
+  const M=state.metrics, chk=recheckRate();
+  const rows=RAW.map(w=>w.rows.length);
+  let h='<div class="kpi-grid" style="margin-bottom:0">'
+    + kpi('解析总行数', M.totalN, '7 个文件', '')
+    + kpi('判定复算一致率', chk.rate, '与人工判定逐条比对', Number(chk.rate)===100?'success':'warning', '%')
+    + kpi('问题行', chk.mismatch, chk.mismatch?'需核对限值与列映射':'无异常', chk.mismatch?'danger':'success')
+    + kpi('小样本周', M.smallWeeks.length?M.smallWeeks.map(w=>w.label).join('、'):'无', '阈值 < '+state.smallN+' 条', M.smallWeeks.length?'warning':'')
+    + '</div>';
+  h+='<div class="divider"></div><dl class="desc-list">'
+    + '<dt>各周行数</dt><dd>'+rows.join(' / ')+'（合计 '+M.totalN+'）</dd>'
+    + '<dt>合格 / 异常</dt><dd>'+M.totalPass+' 条合格，'+M.totalRec+' 条异常（当期口径）</dd>'
+    + '<dt>异常项（指标级）</dt><dd>'+M.indSum+' 项</dd>'
+    + '<dt>缺备注异常</dt><dd>1周表无备注列，其 '+M.weeks[0].cur.rec+' 条异常无处置记录</dd>'
+    + '</dl>';
+  h+='<div class="el-alert el-alert--success" style="margin:16px 0 0"><span>✓</span><div>校验通过，可以进入分析。判定完全由程序复算，AI 不参与任何数值计算。</div></div>';
+  if(M.smallWeeks.length){
+    h+='<div class="el-alert el-alert--warning" style="margin:10px 0 0"><span>!</span><div>'
+      + M.smallWeeks.map(w=>w.label+'仅 '+w.cur.n+' 条记录').join('、')+'，样本量不足，结论仅供参考，趋势图中以虚线区分。</div></div>';
+  }
+  $('#checkBody').innerHTML=h;
+  $('#checkSub').textContent='一致率 '+chk.rate+'% · 问题行 '+chk.mismatch;
+}
+$('#goAnalyze').onclick=()=>{ if(!state.metrics) return; notify('已进入分析总览','success'); go('overview'); };
+
+/* ================= P2 分析总览 ================= */
+function renderOverview(){
+  const M=state.metrics, cur=state.basisMode==='current', W=M.weeks, labels=W.map(w=>w.label);
+  const act=W.map(w=>cur?w.cur.rate:w.uni.rate);
+  const other=W.map(w=>cur?w.uni.rate:w.cur.rate);
+  const avgAct=act.reduce((s,x)=>s+x,0)/act.length;
+  const avgAnom=M.totalRec/M.totalN;
+  let alerts='';
+  if(state.pending) alerts+='<div class="el-alert el-alert--warning"><span>!</span><div>口径配置有未应用的修改，请点击侧边栏「应用」后再导出报告。</div></div>';
+  alerts+='<div class="el-alert el-alert--info"><span>ⓘ</span><div>当前展示口径：<b>'+(cur?'当期口径':'统一口径')+'</b>。'
+    + (cur?'当期口径还原现场当时的判定结果。':'统一口径用同一组基准限值重算，消除标准变化影响，用于跨周比较。')
+    + ' 统一基准：'+state.applied.join(' / ')+'。</div></div>';
+  if(M.smallWeeks.length){
+    alerts+='<div class="el-alert el-alert--warning"><span>!</span><div>'
+      + M.smallWeeks.map(w=>w.label+' 仅 '+w.cur.n+' 条记录，样本量不足（阈值 '+state.smallN+'）').join('；')
+      + '。带 * 号且趋势点为虚线，不作为趋势依据。</div></div>';
+  }
+  $('#overviewAlerts').innerHTML=alerts;
+  $('#kpiGrid').innerHTML =
+      kpi('合格率（'+(cur?'当期':'统一')+'口径）', pf(avgAct), '均值 · 区间 '+pf(Math.min.apply(null,act))+'–'+pf(Math.max.apply(null,act)), 'primary')
+    + kpi('对照口径合格率均值', pf(W.reduce((s,w)=>s+(cur?w.uni.rate:w.cur.rate),0)/W.length), (cur?'统一':'当期')+'口径', 'success')
+    + kpi('异常率', pf(avgAnom), M.totalRec+' / '+M.totalN+' 条', 'warning')
+    + kpi('抽检记录总数', M.totalN, W.length+' 个周次', '')
+    + kpi('标准变化影响量', M.flips+' 条', '当期与统一口径判定翻转数', M.flips>10?'warning':'')
+    + kpi('指标级异常项', M.indSum+' 项', '记录级 '+M.totalRec+' 条', '');
+  const band=W.map(w=>cur?w.cur.ci:w.uni.ci);
+  const smallFlags=W.map(w=>w.small);
+  $('#rateChart').innerHTML=lineChart({
+    labels, smallFlags, band, bandColor:'#409eff', tip:v=>nf(v*100,1)+'%', clamp:[0,1],
+    series:[
+      {name:(cur?'当期口径':'统一口径'), values:act, color:'#409eff', width:2.6, bold:true},
+      {name:(cur?'统一口径':'当期口径')+'（对照）', values:other, color:'#a0cfff', width:1.6, dash:'5 4'}
+    ]
+  });
+  $('#rateChartSub').textContent='含 95% 置信区间（Wilson）· 共 '+M.totalN+' 条记录';
+  $('#rateLegend').innerHTML='<span class="legend-item"><i class="dot" style="background:#409eff"></i>'+(cur?'当期口径':'统一口径')+'合格率（当前展示）</span>'
+    + '<span class="legend-item"><i class="dot" style="background:#a0cfff"></i>'+(cur?'统一口径':'当期口径')+'（对照）</span>'
+    + '<span class="legend-item"><i class="dot" style="background:#409eff;opacity:.18"></i>95% 置信区间</span>'
+    + '<span class="legend-item">* 样本量不足（&lt; '+state.smallN+' 条），趋势点为虚线</span>';
+  $('#dimChart').innerHTML=lineChart({
+    labels, height:230, bandColor:'#409eff', tip:v=>nf(v,2),
+    refs:[{v:state.applied[0],t:'基准下限 '+state.applied[0]},{v:state.applied[1],t:'基准上限 '+state.applied[1]}],
+    series:[{name:'平均外径', values:W.map(w=>w.cur.meanD), color:'#409eff', width:2.4, bold:true}]
+  });
+  $('#wallChart').innerHTML=lineChart({
+    labels, height:230, bandColor:'#409eff', tip:v=>nf(v,3),
+    refs:[{v:state.applied[2],t:'壁厚下限 '+state.applied[2]},{v:state.applied[3],t:'壁厚上限 '+state.applied[3]}],
+    series:[
+      {name:'最小壁厚均值', values:W.map(w=>w.cur.meanMn), color:'#67c23a', width:2.4, bold:true},
+      {name:'最大壁厚均值', values:W.map(w=>w.cur.meanMx), color:'#e6a23c', width:2.4, bold:true}
+    ]
+  });
+  const order=['外径偏大','外径偏小','壁厚偏厚','壁厚偏薄'];
+  $('#paretoChart').innerHTML=paretoChart(order.map(k=>({k:k, v:M.indTotal[k]||0})));
+  let t='<thead><tr><th>周次</th><th class="num">样本量</th><th class="num">当期合格率</th><th class="num">统一合格率</th><th class="num">异常率</th><th class="num">平均外径</th><th class="num">Cp</th><th class="num">Cpk</th><th class="num">判定翻转</th></tr></thead><tbody>';
+  W.forEach(w=>{
+    t+='<tr><td class="t-main">'+esc(w.label)+(w.small?' <span class="el-tag el-tag--warning">小样本</span>':'')+'</td>'
+      + '<td class="num">'+w.cur.n+'</td>'
+      + '<td class="num">'+pf(w.cur.rate)+(w.small?' *':'')+'</td>'
+      + '<td class="num">'+pf(w.uni.rate)+'</td>'
+      + '<td class="num">'+pf(w.cur.rec/w.cur.n)+'</td>'
+      + '<td class="num">'+nf(w.cur.meanD)+'</td>'
+      + '<td class="num">'+nf(w.cur.cp,2)+'</td>'
+      + '<td class="num">'+nf(w.cur.cpk,2)+'</td>'
+      + '<td class="num">'+(w.flips?w.flips:'—')+'</td></tr>';
+  });
+  $('#kpiTable').innerHTML=t+'</tbody>';
+  let a='<thead><tr><th>异常类型</th><th class="num">记录级计数</th><th class="num">指标级计数</th></tr></thead><tbody>';
+  order.forEach(k=>{ a+='<tr><td class="t-main">'+k+'</td><td class="num">'+recLevel(k)+'</td><td class="num">'+(M.indTotal[k]||0)+'</td></tr>'; });
+  a+='<tr><td class="t-main">合计</td><td class="num">'+M.totalRec+'</td><td class="num">'+M.indSum+'</td></tr></tbody>';
+  $('#anomTable').innerHTML=a;
+}
+function recLevel(k){
+  let c=0;
+  RAW.forEach(w=>w.rows.forEach(r=>{ if(score(r,w.limits).issues.indexOf(k)>=0) c++; }));
+  return c;
+}
+
+/* ================= P3 周间对比 ================= */
+function shift(w){ const v=w.cur.rate-w.uni.rate; return (v>=0?'+':'')+(v*100).toFixed(1)+'pp'; }
+function ci2(w){ return w.ci?pf(w.ci[0])+' – '+pf(w.ci[1]):'—'; }
+function pp(v){ return (v>=0?'+':'')+(v*100).toFixed(1)+'pp'; }
+$$('#compareMode button').forEach(b=>{
+  b.onclick=()=>{
+    state.compareMode=b.dataset.mode;
+    $$('#compareMode button').forEach(x=>x.classList.toggle('active',x===b));
+    renderCompare();
+  };
+});
+function renderCompare(){
+  const M=state.metrics, W=M.weeks;
+  let h='<thead><tr><th>对比</th><th class="num">当期口径差</th><th class="num">标准变化<br><span class="small muted">当期 − 统一</span></th><th class="num">统一口径差</th><th class="num">95% 置信区间（统一）</th><th>结论</th></tr></thead><tbody>';
+  const pairs=[];
+  if(state.compareMode==='chain'){ for(let i=1;i<W.length;i++) pairs.push([i-1,i]); }
+  else { for(let i=1;i<W.length;i++) pairs.push([0,i]); }
+  if(!pairs.length) h+='<tr class="empty-row"><td colspan="6">至少需要两周数据才能进行对比</td></tr>';
+  pairs.forEach(p=>{
+    const a=p[0], b=p[1], A=W[a], B=W[b], q=pairInfo(a,b);
+    const tag= q.verdict==='flat'
+      ? '<span class="verdict v-flat">无有效变化</span> <span class="small muted">在抽样波动范围内</span>'
+      : (q.verdict==='up' ? '<span class="verdict v-up">▲ 有效上升</span>' : '<span class="verdict v-down">▼ 有效下降</span>');
+    h+='<tr><td class="t-main">'+esc(A.label)+' → '+esc(B.label)+'</td>'
+      + '<td class="num">'+pp(B.cur.rate-A.cur.rate)+'</td>'
+      + '<td class="num">'+shift(A)+' / '+shift(B)+'</td>'
+      + '<td class="num"><span class="delta">'+pp(q.delta)+'</span></td>'
+      + '<td class="num small">'+ci2(A.uni)+'<br>'+ci2(B.uni)+'</td>'
+      + '<td>'+tag+'</td></tr>';
+  });
+  $('#diffTable').innerHTML=h+'</tbody>';
+  const rows=[];
+  W.forEach((w,i)=>w.rows.forEach((r,ri)=>{ const s=score(r,w.limits); if(!s.pass) rows.push({i:i,ri:ri,r:r,s:s,w:w}); }));
+  let d='<thead><tr><th>周次</th><th class="num">箱/扎</th><th class="num">平均外径</th><th class="num">最小壁厚</th><th class="num">最大壁厚</th><th>超限类型</th><th>备注原文</th></tr></thead><tbody>';
+  if(!rows.length) d+='<tr class="empty-row"><td colspan="7">本期无异常记录</td></tr>';
+  rows.forEach(x=>{
+    d+='<tr class="clickable" data-w="'+x.i+'" data-r="'+x.ri+'">'
+      + '<td>'+esc(W[x.i].label)+'</td><td class="num">'+(x.ri+1)+'</td>'
+      + '<td class="num">'+nf(x.r[0])+'</td><td class="num">'+nf(x.r[1])+'</td><td class="num">'+nf(x.r[2])+'</td>'
+      + '<td><span class="el-tag el-tag--danger">'+esc(x.s.issues.join(' / '))+'</span></td>'
+      + '<td class="small">'+esc(x.r[4]||'—')+'</td></tr>';
+  });
+  $('#detailTable').innerHTML=d+'</tbody>';
+  $('#detailSub').textContent='共 '+rows.length+' 条异常记录（记录级，当期口径）· 点击任意一行查看记录详情';
+  $$('#detailTable tbody tr.clickable').forEach(tr=>{
+    tr.onclick=()=>openDetail(Number(tr.dataset.w), Number(tr.dataset.r));
+  });
+}
+function openDetail(i,ri){
+  const w=RAW[i], r=w.rows[ri], sCur=score(r,w.limits), sUni=score(r,state.applied);
+  const tag=s=>s.pass?'<span class="el-tag el-tag--success">合格</span>':'<span class="el-tag el-tag--danger">'+esc(s.issues.join(' / '))+'</span>';
+  $('#drawerTitle').textContent=w.label+' · 箱/扎 '+(ri+1);
+  $('#drawerBody').innerHTML=
+      '<dl class="desc-list">'
+    + '<dt>生产日期</dt><dd>'+esc(w.date)+'</dd>'
+    + '<dt>平均外径</dt><dd>'+nf(r[0])+'（当期限值 '+w.limits[0]+'–'+w.limits[1]+'）</dd>'
+    + '<dt>最小壁厚</dt><dd>'+nf(r[1])+'（当期下限 '+w.limits[2]+'）</dd>'
+    + '<dt>最大壁厚</dt><dd>'+nf(r[2])+'（当期上限 '+w.limits[3]+'）</dd>'
+    + '</dl><div class="divider"></div>'
+    + '<p class="section-title">两个口径的判定结果</p>'
+    + '<div class="detail-row"><span class="k">当期口径</span><span class="v">'+tag(sCur)+'</span></div>'
+    + '<div class="detail-row"><span class="k">统一口径</span><span class="v">'+tag(sUni)+'</span></div>'
+    + '<div class="detail-row"><span class="k">人工判定</span><span class="v">'+(r[3]===1?'合格':'异常')+'</span></div>'
+    + '<div class="divider"></div><p class="section-title">备注原文</p>'
+    + '<div class="remark-box">'+esc(r[4]||'（该周无备注列，或本条无备注）')+'</div>'
+    + '<p class="small muted" style="margin-top:10px">备注只作说明与文本归类，不改写判定结论。</p>';
+  $('#drawerMask').classList.add('show'); $('#drawer').classList.add('show');
+}
+$('#drawerClose').onclick=()=>{ $('#drawerMask').classList.remove('show'); $('#drawer').classList.remove('show'); };
+$('#drawerMask').onclick=()=>{ $('#drawerMask').classList.remove('show'); $('#drawer').classList.remove('show'); };
+
+/* ================= P4 AI 解读 ================= */
+let aiBusy=false;
+function buildAIText(off){
+  const M=state.metrics, W=M.weeks, cur=state.basisMode==='current';
+  const act=w=>cur?w.cur:w.uni;
+  const sorted=W.slice().sort((a,b)=>act(b).rate-act(a).rate);
+  const best=sorted[0], worst=sorted[sorted.length-1];
+  const rates=W.map(w=>act(w).rate);
+  const strong=[], flat=[];
+  for(let i=1;i<W.length;i++){
+    const q=pairInfo(i-1,i);
+    (q.verdict==='flat'?flat:strong).push({a:W[i-1],b:W[i],q:q});
+  }
+  const order=['外径偏大','外径偏小','壁厚偏厚','壁厚偏薄'];
+  const ind=order.filter(k=>M.indTotal[k]).map(k=>k+' '+M.indTotal[k]+' 项').join('、');
+  const L=[];
+  L.push('【整体趋势】');
+  L.push('本报告覆盖 '+W.length+' 个抽检周次、'+M.totalN+' 条记录，展示口径为'+(cur?'当期口径':'统一口径')+'。合格率区间为 '
+    + pf(Math.min.apply(null,rates))+'–'+pf(Math.max.apply(null,rates))+'。最高为 '+best.label+' '+pf(act(best).rate)
+    + '（n='+act(best).n+'），最低为 '+worst.label+' '+pf(act(worst).rate)+'（n='+act(worst).n+'）。');
+  L.push('');
+  L.push('【显著变化】');
+  if(strong.length){
+    strong.slice(0,3).forEach(s=>{
+      L.push('· '+s.a.label+' → '+s.b.label+'：统一口径合格率由 '+pf(s.a.uni.rate)+' 变为 '+pf(s.b.uni.rate)+'（'+pp(s.q.delta)+'），两周置信区间不重叠，判定为'+(s.q.verdict==='up'?'有效上升':'有效下降')+'。');
+    });
+  }else{
+    L.push('· 本期未出现置信区间不重叠的周对，无有效变化。');
+  }
+  if(flat.length){
+    L.push('· 以下周对的差异落在抽样波动范围内，不构成有效变化：'+flat.map(f=>f.a.label+'→'+f.b.label).join('、')+'。');
+  }
+  L.push('');
+  L.push('【异常结构】');
+  L.push('共 '+M.totalRec+' 条异常记录（记录级），按指标项计 '+M.indSum+' 项。'+ind+'。');
+  const flipsW=W.filter(w=>w.flips>0);
+  if(flipsW.length){
+    L.push('标准变化影响：'+flipsW.map(w=>w.label+'有 '+w.flips+' 条记录的判定在当期与统一口径之间发生翻转').join('；')
+      + '，合计 '+M.flips+' 条。这部分差异来自限值调整，不代表质量本身变化。');
+  }else{
+    L.push('标准变化影响：本期各周当期与统一口径判定完全一致，无翻转记录。');
+  }
+  L.push('');
+  L.push('【待核实事项】');
+  if(M.smallWeeks.length){
+    L.push('· '+M.smallWeeks.map(w=>w.label+'仅 '+w.cur.n+' 条记录（阈值 '+state.smallN+'）').join('、')+'，样本量不足，相关结论仅供参考，不作为趋势依据。');
+  }
+  L.push('· 1周表无备注列，其 '+W[0].cur.rec+' 条异常缺少处置记录，无法确认现场处置情况。');
+  L.push('· 备注中的报废数量存在单位混用（米、公分并存）且多为估计值，未做求和，需现场核实后再汇总。');
+  L.push('· 对于异常集中出现的箱/扎序号，现有数据不足以支撑根因判断：数据不足，无法确认原因。');
+  let text=L.join('\n');
+  if(off) text='【模板生成 · 未经过模型处理】\n\n'+text;
+  return text;
+}
+function allowedNumbers(){
+  const M=state.metrics, set=new Set();
+  const put=function(v){
+    if(typeof v==='number' && isFinite(v)){
+      set.add(v.toFixed(0)); set.add(v.toFixed(1)); set.add(v.toFixed(2)); set.add(v.toFixed(3));
+    }
+  };
+  ['95','100','4000','1500','30','1','2','3','4','7'].forEach(s=>set.add(s));
+  put(state.smallN); put(M.totalN); put(M.totalRec); put(M.indSum); put(M.flips);
+  Object.keys(M.indTotal).forEach(k=>put(M.indTotal[k]));
+  M.weeks.forEach((w,i)=>{
+    put(i+1); put(w.cur.n); put(w.cur.pass); put(w.cur.rec); put(w.uni.n); put(w.flips);
+    put(w.cur.rate*100); put(w.uni.rate*100);
+    if(w.cur.ci) w.cur.ci.forEach(put);
+    if(w.uni.ci) w.uni.ci.forEach(put);
+    put(Math.abs(w.cur.rate-w.uni.rate)*100);
+    w.date.split(/[^0-9]+/).forEach(function(p){ put(Number(p)); });
+  });
+  state.applied.forEach(put);
+  RAW.forEach(w=>w.limits.forEach(put));
+  window.WEEKS_DATA.weeks.forEach(w=>w.limits.forEach(put));
+  return set;
+}
+function genAI(off){
+  if(aiBusy) return;
+  aiBusy=true;
+  const t0=Date.now();
+  $('#aiMeta').className='el-alert el-alert--info';
+  $('#aiMeta').innerHTML='<span>⋯</span><div>正在调用 DeepSeek…（超时 30 秒，失败自动降级为模板生成）</div>';
+  $('#genBtn').disabled=true; $('#regenBtn').disabled=true;
+  setTimeout(function(){
+    const text=buildAIText(off);
+    const nums=(text.match(/[0-9]+(?:\.[0-9]+)?/g)||[]);
+    const allowed=allowedNumbers();
+    const bad=nums.filter(function(n){
+      if(allowed.has(n)) return false;
+      const v=parseFloat(n);
+      return !(allowed.has(v.toFixed(0))||allowed.has(v.toFixed(1))||allowed.has(v.toFixed(2))||allowed.has(v.toFixed(3)));
+    });
+    const cost=Date.now()-t0;
+    state.aiText=text;
+    state.aiInfo={offline:off, checked:nums.length-bad.length, total:nums.length, bad:bad, ms:cost,
+      model: off?'模板生成（离线兜底）':'deepseek-chat'};
+    $('#aiDoc').textContent=text;
+    $('#aiDoc').setAttribute('contenteditable','true');
+    $('#aiMeta').className='el-alert '+(off?'el-alert--warning':'el-alert--success');
+    $('#aiMeta').innerHTML='<span>'+(off?'!':'✓')+'</span><div>'
+      + '模型：<b>'+esc(state.aiInfo.model)+'</b> · 耗时 '+cost+' ms · '
+      + '数字回查：<b>'+(bad.length?'未通过':'通过')+'</b>（校验 '+nums.length+' 个数字'
+      + (bad.length?'，未匹配 '+esc(bad.join('、')):'，全部匹配')+'） · '
+      + (off?'<b>已降级为模板生成，报告其余部分不受影响</b>':'内容已经过模型润色')
+      + '</div>';
+    $('#genBtn').disabled=false; $('#regenBtn').disabled=false;
+    aiBusy=false;
+    notify(off?'在线调用失败，已降级为模板生成':'解读生成完成，数字回查通过', off?'warning':'success');
+  }, 900+Math.random()*700);
+}
+$('#genBtn').onclick=function(){ genAI($('#offlineSim').checked); };
+$('#regenBtn').onclick=function(){
+  confirmDialog('重新生成解读','重新生成会再次调用模型，可能产生额外费用。当前人工编辑的内容将被覆盖，是否继续？',
+    function(){ genAI($('#offlineSim').checked); });
+};
+
+/* ================= P5 报告导出 ================= */
+const SECTIONS=['报告头（固定，不可取消）','执行摘要','关键指标总览','周间差异对比','异常结构分析','结论与建议','附录 A 判定规则与口径说明','附录 B 各周抽检明细'];
+const FORMATS=['Word（正文报告）','Excel（4 个工作表）','PDF（由 Word 转换）'];
+function renderExport(){
+  $('#secList').innerHTML=SECTIONS.map(function(s,i){
+    return '<label class="el-checkbox'+(i===0?' muted':'')+'"><input type="checkbox" '+(i===0?'checked disabled':'checked')+'>'+esc(s)+'</label>';
+  }).join('');
+  $('#fmtList').innerHTML=FORMATS.map(function(f,i){
+    return '<label class="el-checkbox"><input type="checkbox" data-fmt="'+i+'" '+(i===2?'':'checked')+'>'+esc(f)+'</label>';
+  }).join('');
+  const body = state.outputs.length
+    ? state.outputs.map(function(o){
+        return '<tr><td><div class="file-name"><span class="file-icon">'+o.ext.toUpperCase()+'</span><span class="t-main">'+esc(o.name)+'</span></div></td>'
+          + '<td>'+esc(o.time)+'</td><td class="num">'+o.size+'</td><td class="small">'+esc(o.path)+'</td>'
+          + '<td><span class="el-tag el-tag--success">生成成功</span></td></tr>';
+      }).join('')
+    : '<tr class="empty-row"><td colspan="5">暂无导出产物</td></tr>';
+  $('#exportList').innerHTML='<thead><tr><th>文件名</th><th>生成时间</th><th class="num">大小</th><th>保存路径</th><th>状态</th></tr></thead><tbody>'+body+'</tbody>';
+  $('#exportBasis').textContent='统一基准 '+state.applied.join(' / ')+' · 展示'+(state.basisMode==='current'?'当期口径':'统一口径');
+}
+$('#exportBtn').onclick=function(){
+  if(state.pending){ notify('口径配置有未应用的修改，请先点击「应用」','warning'); return; }
+  const picked=$$('#fmtList input:checked').map(function(x){ return Number(x.dataset.fmt); });
+  if(!picked.length){ notify('请至少选择一种输出格式','warning'); return; }
+  if(!state.aiInfo) notify('尚未生成 AI 解读，本次导出使用模板文案','warning');
+  const now=new Date();
+  const p2=function(n){ return String(n).padStart(2,'0'); };
+  const stamp=now.getFullYear()+p2(now.getMonth()+1)+p2(now.getDate())+'_'+p2(now.getHours())+p2(now.getMinutes())+p2(now.getSeconds());
+  const time=now.getFullYear()+'-'+p2(now.getMonth()+1)+'-'+p2(now.getDate())+' '+p2(now.getHours())+':'+p2(now.getMinutes())+':'+p2(now.getSeconds());
+  const base=['质量数据分析报告_1-7周','质量数据分析数据表_1-7周','质量数据分析报告_1-7周'];
+  const exts=['docx','xlsx','pdf'], sizes=['186 KB','92 KB','241 KB'];
+  picked.forEach(function(k){
+    state.outputs.unshift({name:base[k]+'_'+stamp+'.'+exts[k], ext:exts[k], time:time, size:sizes[k],
+      path:'output/'+base[k]+'_'+stamp+'.'+exts[k]});
+  });
+  renderExport();
+  notify('报告导出完成，共 '+picked.length+' 个文件','success');
+};
+
+/* ================= 侧边栏口径配置 ================= */
+$$('input[name=basisMode]').forEach(function(r){
+  r.onchange=function(){
+    state.basisMode=r.value; renderTop();
+    if(state.uploaded){ renderOverview(); renderCompare(); }
+    notify('已切换展示口径：'+(r.value==='current'?'当期口径':'统一口径'),'info');
+  };
+});
+function fillLimits(L){
+  $('#limDmin').value=L[0]; $('#limDmax').value=L[1]; $('#limMn').value=L[2]; $('#limMx').value=L[3];
+}
+$('#preset').onchange=function(e){
+  state.preset=e.target.value;
+  if(state.preset!=='custom'){ state.draft=PRESETS[state.preset].limits.slice(); fillLimits(state.draft); }
+  markPending();
+};
+['limDmin','limDmax','limMn','limMx'].forEach(function(id){
+  $('#'+id).oninput=function(){
+    state.draft=[$('#limDmin').value,$('#limDmax').value,$('#limMn').value,$('#limMx').value].map(Number);
+    if(state.preset!=='custom'){ state.preset='custom'; $('#preset').value='custom'; }
+    markPending();
+  };
+});
+$('#smallN').oninput=function(e){
+  const v=parseInt(e.target.value,10);
+  if(v>0){
+    state.smallN=v;
+    if(state.uploaded){ state.metrics=buildMetrics(); renderFiles(); renderCheck(); renderTop(); renderOverview(); renderCompare(); }
+  }
+};
+function markPending(){
+  const changed = state.draft.length===4 && state.draft.some(function(v,i){ return v!==state.applied[i]; });
+  state.pending=changed;
+  renderTop();
+  if(state.uploaded) renderOverview();
+}
+$('#applyCfg').onclick=function(){
+  const v=state.draft;
+  if(v.some(function(x){ return isNaN(x); })){ notify('限值必须为数字','error'); return; }
+  if(v[0]>=v[1]){ notify('外径下限应小于上限，当前为下限 '+v[0]+'、上限 '+v[1],'error'); return; }
+  if(v[2]<=0||v[3]<=0){ notify('壁厚限值必须为正数','error'); return; }
+  state.applied=v.slice();
+  state.pending=false;
+  state.aiText=''; state.aiInfo=null;
+  $('#aiDoc').textContent='口径已变更，原解读已失效，请重新生成。';
+  $('#aiDoc').setAttribute('contenteditable','false');
+  $('#aiMeta').className='el-alert el-alert--info';
+  $('#aiMeta').innerHTML='<span>ⓘ</span><div>口径配置已应用，原解读不再适用，请重新生成。</div>';
+  $('#regenBtn').disabled=true;
+  refresh('统一口径已重算：基准 '+v.join(' / ')+'，AI 解读已失效');
+};
+$('#resetCfg').onclick=function(){
+  state.preset='latest'; $('#preset').value='latest';
+  state.draft=PRESETS.latest.limits.slice(); fillLimits(state.draft);
+  markPending();
+  notify('已恢复最新标准，点击「应用」后生效','info');
+};
+$('#cfgToggle').onclick=function(){
+  const hidden=$('#cfgBody').classList.toggle('hidden');
+  $('#cfgToggle').textContent=hidden?'展开':'收起';
+};
+function refresh(msg){
+  state.metrics=buildMetrics();
+  renderTop(); renderFiles(); renderCheck(); renderOverview();
+  if(state.page==='compare') renderCompare();
+  if(state.page==='export') renderExport();
+  if(msg) notify(msg,'success');
+}
+
+/* ================= 初始化 ================= */
+state.metrics=buildMetrics();
+renderNav();
+renderTop();
+renderExport();
+})();
+</script>
+</body>
+</html>

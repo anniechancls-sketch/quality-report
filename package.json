@@ -1,0 +1,14 @@
+{
+  "name": "quality-analytics-report",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "质量数据分析与报告生成工具（培训用轻量工具）",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test",
+    "start": "node src/app/server.js"
+  }
+}
